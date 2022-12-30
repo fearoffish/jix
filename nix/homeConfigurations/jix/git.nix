@@ -21,7 +21,7 @@
         syntax-theme = "GitHub";
       };
     };
-    ignores = [ ".DS_Store" "*.swp" ".overcommit.yml" ".projectile" ];
+    ignores = [".DS_Store" "*.swp" ".overcommit.yml" ".projectile"];
     includes = [
       {
         path = "/Users/C5343288/SAPDevelop/.gitconfig-work";

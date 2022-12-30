@@ -58,7 +58,8 @@
       lzma
       # ncdu # a great large file and folder finder with a tui to help cleanup stuffs
       # niv # Nix dependency management
-      gcc pkg-config
+      gcc
+      pkg-config
       pinentry_mac # Necessary for GPG
       qemu # emulator
       re2c # regex compiler

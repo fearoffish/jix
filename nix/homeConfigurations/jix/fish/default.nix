@@ -30,7 +30,7 @@
       })
       ["pure" "done" "fzf.fish" "pisces" "z"];
   };
-  home.sessionPath = [ "~/.local/bin" "~/.emacs.d/bin" ];
+  home.sessionPath = ["~/.local/bin" "~/.emacs.d/bin"];
   home.sessionVariables = {
     EDITOR = "subl -w";
   };
