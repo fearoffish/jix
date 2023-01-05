@@ -27,7 +27,7 @@
 
   config = {
     home.packages = with pkgs; [
-      asdf-vm
+      # asdf-vm
       autoconf # Broadly used tool, no clue what it does
       bash # /bin/bash
       bat

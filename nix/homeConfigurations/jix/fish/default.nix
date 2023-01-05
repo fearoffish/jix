@@ -21,6 +21,8 @@
       eval "$(/opt/homebrew/bin/brew shellenv)"
       source ${pkgs.asdf-vm}/share/asdf-vm/asdf.fish
       source ${pkgs.asdf-vm}/share/asdf-vm/completions/asdf.fish
+
+      fish_add_path ~/.local/bin
     '';
 
     plugins =
@@ -30,7 +32,7 @@
       })
       ["pure" "done" "fzf.fish" "pisces" "z"];
   };
-  home.sessionPath = ["~/.local/bin" "~/.emacs.d/bin"];
+  home.sessionPath = ["~/.emacs.d/bin"];
   home.sessionVariables = {
     EDITOR = "subl -w";
   };

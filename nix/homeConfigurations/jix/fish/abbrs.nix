@@ -46,4 +46,6 @@
   ib = "iacbox -iv=iacbox.common.cdn.repositories.cloud.sap/iacbox-dev-arm:latest";
   e = "emacs . &";
   s = "subl";
+  puri = "git pull && git suri";
+  jinstall = "cd /a/jix && make install && cd -";
 }
