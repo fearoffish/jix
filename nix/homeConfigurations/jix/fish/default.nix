@@ -23,6 +23,7 @@
       source ${pkgs.asdf-vm}/share/asdf-vm/completions/asdf.fish
 
       fish_add_path ~/.local/bin
+      direnv hook fish | source
     '';
 
     plugins =

@@ -22,6 +22,7 @@
     ./jix/ssh
     ./jix/fish
     ./jix/gpg
+    ./jix/lorri.nix
     # ./jix/emacs
   ];
 
@@ -33,6 +34,7 @@
       bat
       bottom # istat menus on the cli
       btop # another istat top like monitor
+      coreutils
       curl # An old classic
       deadnix # scan for unused nix code
       difftastic
@@ -54,6 +56,7 @@
       lazygit # nice tui for git
       libnotify # for those sweet sweet notifications
       libxml2
+      lorri # for shell.nix caching stuff?
       sumneko-lua-language-server # for syntax in neovim
       lzma
       # ncdu # a great large file and folder finder with a tui to help cleanup stuffs
