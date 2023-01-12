@@ -29,6 +29,8 @@
   ga = "git commit --amend --reuse-message HEAD --all";
   gcam = "git commit --amend --all --message";
   gbDm = "git rm-merged";
+  glo = "git log --graph --oneline";
+  gss = "git status";
   # Magit
   ms = "mg SPC g g";
   # status
