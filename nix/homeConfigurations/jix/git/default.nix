@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }: {
   programs.git = {
@@ -21,7 +22,7 @@
         syntax-theme = "GitHub";
       };
     };
-    ignores = [".DS_Store" "*.swp" ".overcommit.yml" ".projectile"];
+    ignores = [".DS_Store" "*.swp" ".overcommit.yml" ".projectile" ".tool-versions"];
     includes = [
       {
         path = "/Users/C5343288/SAPDevelop/.gitconfig-work";
@@ -72,5 +73,9 @@
       # push with submodules
       spush = "push --recurse-submodules=on-demand";
     };
+  };
+  home.file = {
+    ".local/bin/wt".source = "plugins/wt";
+    ".config/fish/completions".source = "completions/wt.fish";
   };
 }

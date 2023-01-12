@@ -19,10 +19,13 @@
       set -g fish_key_bindings fish_hybrid_key_bindings
 
       eval "$(/opt/homebrew/bin/brew shellenv)"
-      source ${pkgs.asdf-vm}/share/asdf-vm/asdf.fish
-      source ${pkgs.asdf-vm}/share/asdf-vm/completions/asdf.fish
+
+      # asdf
+      source /opt/homebrew/opt/asdf/libexec/asdf.fish
 
       fish_add_path ~/.local/bin
+
+      # direnv
       direnv hook fish | source
     '';
 

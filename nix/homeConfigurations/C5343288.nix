@@ -18,11 +18,10 @@
   };
 
   imports = [
-    ./jix/git.nix
+    ./jix/git
     ./jix/ssh
     ./jix/fish
     ./jix/gpg
-    ./jix/lorri.nix
     # ./jix/emacs
   ];
 
@@ -38,7 +37,7 @@
       curl # An old classic
       deadnix # scan for unused nix code
       difftastic
-      direnv # Per-directory environment variables
+      # direnv # Per-directory environment variables (required by lorri)
       exa # ls replacement written in Rust
       exercism # exercises to learn and teach programming
       fd # find replacement written in Rust
