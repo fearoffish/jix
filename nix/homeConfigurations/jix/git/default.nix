@@ -74,8 +74,7 @@
       spush = "push --recurse-submodules=on-demand";
     };
   };
-  home.file = {
-    ".local/bin/wt".source = "plugins/wt";
-    ".config/fish/completions".source = "completions/wt.fish";
-  };
+
+  home.file.".config/fish/completions/wt.fish".source = ./completions/wt.fish;
+  home.file.".local/bin/wt".source = ./plugins/wt;
 }

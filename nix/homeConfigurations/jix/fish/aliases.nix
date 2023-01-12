@@ -6,5 +6,4 @@
   ".." = "cd ..";
   "..." = "cd ../..";
   be = "bundle exec";
-  wt = "git worktree";
 }

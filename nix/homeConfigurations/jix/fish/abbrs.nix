@@ -48,4 +48,5 @@
   s = "subl";
   puri = "git pull && git suri";
   jinstall = "cd /a/jix && make install && cd -";
+  src = "cd components/bosh/src";
 }
