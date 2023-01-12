@@ -42,6 +42,7 @@
 
       github.user = "fearoffish";
       gitlab.user = "fearoffish";
+      pull.ff = "only";
     };
     aliases = {
       # View abbreviated SHA, description, and history graph of the latest 20 commits
@@ -77,4 +78,5 @@
 
   home.file.".config/fish/completions/wt.fish".source = ./completions/wt.fish;
   home.file.".local/bin/wt".source = ./plugins/wt;
+  home.file."SAPDevelop/.gitconfig-work".source = ./configs/gitconfig-work;
 }
