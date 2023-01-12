@@ -6,6 +6,7 @@
   ...
 }: {
   programs.direnv = import ./direnv.nix;
+  programs.starship = import ./starship.nix;
   programs.fzf.enable = true;
   programs.fzf.enableFishIntegration = true;
   programs.fish = {
