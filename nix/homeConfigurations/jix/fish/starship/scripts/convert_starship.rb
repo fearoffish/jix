@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
-# -*- coding: utf-8 -*-
 #
 # Convert a Starship toml file to a home manager settings block
 
@@ -16,5 +15,8 @@ require 'pp'
 stdin = $stdin.read
 toml = Tomlrb.parse(stdin)
 
-template = ERB.new(File.read('starship.nix.erb'), trim_mode: '-')
-File.write('../settings.nix', template.result(binding))
+template_file = File.join(__dir__, 'settings.nix.erb')
+template = ERB.new(File.read(template_file), trim_mode: '-')
+
+settings_file = File.join(__dir__, '../settings.nix')
+File.write(settings_file, template.result(binding))

@@ -5,11 +5,12 @@
   <%= key -%> = "<%= value -%>";
 
 <% else -%>
+<% next if key == 'directory' -%>
   <%= key -%> = {
 <% value.each do |k,v| -%>
-    <%= k.strip -%> = "<%= v.strip rescue v -%>";
+    <%= k.strip -%> = <%= v.class == String ? "\"#{v.strip}\"" : v -%>;
 <% end -%>
   };
 <% end -%>
 <% end -%>
-};
+}

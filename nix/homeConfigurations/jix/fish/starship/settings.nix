@@ -1,91 +1,37 @@
 {
   command_timeout = 2000;
-  format = "[](#9A348E)$os$username[](bg:#DA627D fg:#9A348E)$directory[](fg:#DA627D bg:#FCA17D)$git_branch$git_status[](fg:#FCA17D bg:#86BBD8)$c$elixir$elm$golang$haskell$java$julia$nodejs$nim$rust$scala[](fg:#86BBD8 bg:#06969A)$docker_context[](fg:#06969A bg:#33658A)$time[ ](fg:#33658A)";
+  format = "$username$hostname$directory$git_branch$git_state$git_status$cmd_duration$line_break$python$character";
 
-  username = {
-    show_always = "true";
-    style_user = "bg:#9A348E";
-    style_root = "bg:#9A348E";
-    format = "[$user ]($style)";
-    disabled = "false";
-  };
-  os = {
-    style = "bg:#9A348E";
-    disabled = "true";
-  };
-  c = {
-    symbol = "";
-    style = "bg:#86BBD8";
-    format = "[ $symbol ($version) ]($style)";
-  };
-  docker_context = {
-    symbol = "";
-    style = "bg:#06969A";
-    format = "[ $symbol $context ]($style) $path";
-  };
-  elixir = {
-    symbol = "";
-    style = "bg:#86BBD8";
-    format = "[ $symbol ($version) ]($style)";
-  };
-  elm = {
-    symbol = "";
-    style = "bg:#86BBD8";
-    format = "[ $symbol ($version) ]($style)";
+  character = {
+    success_symbol = "[❯](purple)";
+    error_symbol = "[❯](red)";
+    vimcmd_symbol = "[❮](green)";
   };
   git_branch = {
-    symbol = "";
-    style = "bg:#FCA17D";
-    format = "[ $symbol $branch ]($style)";
+    format = "[$branch]($style)";
+    style = "bright-black";
   };
   git_status = {
-    style = "bg:#FCA17D";
-    format = "[$all_status$ahead_behind ]($style)";
+    format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)";
+    style = "cyan";
+    conflicted = "​";
+    untracked = "​";
+    modified = "​";
+    staged = "​";
+    renamed = "​";
+    deleted = "​";
+    stashed = "≡";
   };
-  golang = {
-    symbol = "";
-    style = "bg:#86BBD8";
-    format = "[ $symbol ($version) ]($style)";
+  git_state = {
+    format = "\([$state( $progress_current/$progress_total)]($style)\)";
+    style = "bright-black";
   };
-  haskell = {
-    symbol = "";
-    style = "bg:#86BBD8";
-    format = "[ $symbol ($version) ]($style)";
+  cmd_duration = {
+    format = "[$duration]($style)";
+    style = "yellow";
   };
-  java = {
-    symbol = "";
-    style = "bg:#86BBD8";
-    format = "[ $symbol ($version) ]($style)";
-  };
-  julia = {
-    symbol = "";
-    style = "bg:#86BBD8";
-    format = "[ $symbol ($version) ]($style)";
-  };
-  nodejs = {
-    symbol = "";
-    style = "bg:#86BBD8";
-    format = "[ $symbol ($version) ]($style)";
-  };
-  nim = {
-    symbol = "";
-    style = "bg:#86BBD8";
-    format = "[ $symbol ($version) ]($style)";
-  };
-  rust = {
-    symbol = "";
-    style = "bg:#86BBD8";
-    format = "[ $symbol ($version) ]($style)";
-  };
-  scala = {
-    symbol = "";
-    style = "bg:#86BBD8";
-    format = "[ $symbol ($version) ]($style)";
-  };
-  time = {
-    disabled = "false";
-    time_format = "%R";
-    style = "bg:#33658A";
-    format = "[ ♥ $time ]($style)";
+  python = {
+    format = "[$virtualenv]($style)";
+    style = "bright-black";
   };
 }
