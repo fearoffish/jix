@@ -16,6 +16,7 @@
   gp = "git pull --rebase --no-commit";
   gz = "git stash";
   gza = "git stash apply";
+  gpo = "git push origin";
   gfp = "git push --force-with-lease";
   gfap = "git fetch --all -p";
   groh = "git rebase remotes/origin/HEAD";

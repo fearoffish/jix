@@ -1,0 +1,15 @@
+{
+  command_timeout = 2000;
+<% toml.each do |key, value| -%>
+<% if value.class == String -%>
+  <%= key -%> = "<%= value -%>";
+
+<% else -%>
+  <%= key -%> = {
+<% value.each do |k,v| -%>
+    <%= k.strip -%> = "<%= v.strip rescue v -%>";
+<% end -%>
+  };
+<% end -%>
+<% end -%>
+};
