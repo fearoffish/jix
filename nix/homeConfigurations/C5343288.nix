@@ -27,6 +27,7 @@
 
   config = {
     home.packages = with pkgs; [
+      any-nix-shell
       # asdf-vm
       autoconf # Broadly used tool, no clue what it does
       bash # /bin/bash
