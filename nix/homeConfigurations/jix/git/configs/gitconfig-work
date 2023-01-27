@@ -4,3 +4,5 @@
   signingkey = "9E38EBA7545107BA01517C7847FCD8BACC05E151"
   signByDefault = true
 
+[safe]
+  directory = *

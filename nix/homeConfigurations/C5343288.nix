@@ -8,13 +8,13 @@
 # https://github.com/nix-community/home-manager/blob/master/modules/modules.nix
 {
   options = {
-    # dots = lib.mkOption {
-    #   description = "Link to secret stuff";
-    #   type = lib.types.package;
-    #   default = config.lib.file.mkOutOfStoreSymlink /hk/dots;
-    #   visible = false;
-    #   readOnly = true;
-    # };
+    dots = lib.mkOption {
+      description = "Link to secret stuff";
+      type = lib.types.package;
+      default = config.lib.file.mkOutOfStoreSymlink /a/dots;
+      visible = false;
+      readOnly = true;
+    };
   };
 
   imports = [
@@ -22,10 +22,13 @@
     ./jix/ssh
     ./jix/fish
     ./jix/gpg
-    # ./jix/emacs
+    ./jix/emacs
   ];
 
   config = {
+    manual.html.enable = false;
+    manual.manpages.enable = false;
+
     home.packages = with pkgs; [
       any-nix-shell
       # asdf-vm

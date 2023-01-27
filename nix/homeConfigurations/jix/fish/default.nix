@@ -41,7 +41,6 @@
   home.sessionVariables = {
     EDITOR = "subl -w";
   };
-  # programs.starship = import ./starship.nix;
   programs.zoxide = import ./zoxide.nix;
 
   home.file = {
