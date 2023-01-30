@@ -20,12 +20,9 @@
 
 (package! info-plus :pin "5ecd4c1e3f1384bffb386e61a8e3788652e55c25")
 
-(if (getenv "GITHUB_WORKFLOW")
-    (package! gitmoji
-      :recipe (:host github
-               :repo "Townk/gitmoji"))
-  (package! gitmoji
-    :recipe (:local-repo "~/workplace/personal/emacs/gitmoji")))
+(package! gitmoji
+  :recipe (:host github
+           :repo "Townk/gitmoji"))
 
 (package! dired-collapse)
 (package! dired-narrow)
