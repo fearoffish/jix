@@ -1,8 +1,10 @@
+(package! benchmark-init
+  :recipe (:host github
+           :repo "kekeimiku/benchmark-init-el"))
+
 (package! aggressive-indent)
 
 (package! evil-cleverparens)
-
-(package! which-key-posframe)
 
 (package! evil-escape :disable t)
 
@@ -16,13 +18,14 @@
 
 (package! string-inflection)
 
+(package! chatgpt
+  :recipe (:host github :repo "joshcho/ChatGPT.el" :files ("dist" "*.el")))
+
+(package! ruby-hash-syntax)
+
 (package! page-break-lines)
 
 (package! info-plus :pin "5ecd4c1e3f1384bffb386e61a8e3788652e55c25")
-
-(package! gitmoji
-  :recipe (:host github
-           :repo "Townk/gitmoji"))
 
 (package! dired-collapse)
 (package! dired-narrow)

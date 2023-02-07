@@ -104,7 +104,7 @@
         +aspell
         ;; +hunspell
         ;; +enchant
-        +everywhere
+        ;; +everywhere
         )
        grammar           ; tasing grammar mistake every you make
 
@@ -137,7 +137,7 @@
        ;; prodigy           ; FIXME managing external services & code builders
        ;; rgb               ; creating color strings
        taskrunner        ; taskrunner for all your projects
-       ;; terraform         ; infrastructure as code
+       terraform         ; infrastructure as code
        ;; tmux              ; an API for interacting with tmux
        ;; upload            ; map local to remote projects via ssh/ftp
 
@@ -149,8 +149,8 @@
 
        :lang
        ;; agda              ; types of types of types of types...
-       (cc               ; C/C++/Obj-C madness
-        +lsp)
+       ;; (cc               ; C/C++/Obj-C madness
+       ;;  +lsp)
        ;; clojure           ; java with a lisp
        ;; common-lisp       ; if you've seen one lisp, you've seen them all
        ;; coq               ; proofs-as-programs
@@ -184,8 +184,8 @@
         +lsp
         )
        ;; julia             ; a better, faster MATLAB
-       kotlin            ; a better, slicker Java(Script)
-       latex             ; writing papers in Emacs has never been so fun
+       ;; kotlin            ; a better, slicker Java(Script)
+       ;; latex             ; writing papers in Emacs has never been so fun
        ;; lean
        ;; factor
        ;; ledger            ; an accounting system in Emacs
@@ -208,10 +208,10 @@
         ;; +pomodoro
         +present
         ;; +pretty
-        +roam
+        +roam2
         )
        ;; php               ; perl's insecure younger brother
-       plantuml          ; diagrams for confusing people more
+       ;; plantuml          ; diagrams for confusing people more
        ;; purescript        ; javascript, but functional
        (python           ; beautiful is better than ugly
         ;; +conda
@@ -229,16 +229,16 @@
        (ruby             ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
         +rails
         )
-       (rust             ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
-        +lsp
-        )
+       ;;(rust             ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
+       ;; +lsp
+       ;; )
        ;; scala             ; java, but good
        ;; scheme            ; a fully conniving family of lisps
        (sh               ; she sells {ba,z,fi}sh shells on the C xor
         +lsp)
        ;; sml
        ;; solidity          ; do you need a blockchain? No.
-       swift             ; who asked for emoji variables?
+       ;; swift             ; who asked for emoji variables?
        ;; terra             ; Earth and Moon in alignment for performance.
        web               ; the tubes
        (yaml             ; JSON, but readable
@@ -246,7 +246,7 @@
 
        :email
        ;;(mu4e
-        ;; +gmail
+       ;; +gmail
        ;; )
        ;; notmuch
        ;; (wanderlust

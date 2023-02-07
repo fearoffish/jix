@@ -54,12 +54,14 @@
       gitAndTools.delta
       gitui
       gmp
+      graphviz
       heroku
       jq # JSON parsing for the CLI
       lazygit # nice tui for git
       libnotify # for those sweet sweet notifications
       libxml2
       lorri # for shell.nix caching stuff?
+      pngpaste
       sumneko-lua-language-server # for syntax in neovim
       lzma
       # ncdu # a great large file and folder finder with a tui to help cleanup stuffs

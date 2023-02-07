@@ -13,26 +13,6 @@
     end
     fish_vi_key_bindings --no-erase
   '';
-  jix-activate.description = "Activate a new jix system generation";
-  jix-activate.body = "nix run /hk/jix";
-  jix-shell.description = "Run nix shell with jix's nixpkgs";
-  jix-shell.body = "nix shell --inputs-from $HOME/.nix-out/nixpkgs";
-  jix-nixpkg-search.description = "Nix search on jix's nixpkgs input";
-  jix-nixpkg-search.body = "nix search --inputs-from $HOME/.nix-out/jix nixpkgs $argv";
-  rg-jix-inputs.description = "Search on jix flake inputs";
-  rg-jix-inputs.body = let
-    maybeFlakePaths = f:
-      if builtins.hasAttr "inputs" f
-      then flakePaths f
-      else [];
-    flakePaths = flake:
-      [flake.outPath]
-      ++ lib.flatten
-      (lib.mapAttrsToList (_: maybeFlakePaths) flake.inputs);
-    paths = builtins.concatStringsSep " " (flakePaths inputs.self);
-  in "rg $argv ${paths}";
-  rg-jix.description = "Search on current jix";
-  rg-jix.body = "rg $argv $HOME/.nix-out/jix";
   rg-nixpkgs.description = "Search on current nixpkgs";
   rg-nixpkgs.body = "rg $argv $HOME/.nix-out/nixpkgs";
   rg-home-manager.description = "Search on current home-manager";
