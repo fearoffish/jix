@@ -23,6 +23,7 @@
     ./jix/fish
     ./jix/gpg
     ./jix/emacs
+    ./jix/iterm
   ];
 
   config = {
