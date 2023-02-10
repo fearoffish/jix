@@ -10,8 +10,8 @@
   };
 
   outputs = {mk-darwin-system, ...} @ inputs: let
-    userName = "C5343288";
-    hostName = "K9XQJHW7QC";
+    userName = "jamievandyke";
+    hostName = "fearofair";
 
     darwinFlake = mk-darwin-system.mkFlake {
       inherit userName hostName inputs;
