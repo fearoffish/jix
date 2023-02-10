@@ -47,13 +47,13 @@
         ]
       },
       "locked": {
-        "lastModified": 1674821024,
-        "narHash": "sha256-PyaqFdIQIDGFoTrKnLsvCWKFBO93jbtxvM2nMbIWltA=",
-        "path": "/a/mk-darwin-system",
+        "lastModified": 1676034284,
+        "narHash": "sha256-i556uEB+5AHMaKaVOD5VSyv7KBEyeNMnA3ZRzAtRCxs=",
+        "path": "/Users/jamievandyke/a/mk-darwin-system",
         "type": "path"
       },
       "original": {
-        "path": "/a/mk-darwin-system",
+        "path": "/Users/jamievandyke/a/mk-darwin-system",
         "type": "path"
       }
     },

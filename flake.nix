@@ -5,7 +5,7 @@
 
     # change main to a tag o git revision
     # mk-darwin-system.url = "github:vic/mk-darwin-system/main";
-    mk-darwin-system.url = "path:/a/mk-darwin-system";
+    mk-darwin-system.url = "path:/Users/jamievandyke/a/mk-darwin-system";
     mk-darwin-system.inputs.nixpkgs.follows = "nixpkgs";
   };
 
