@@ -17,35 +17,35 @@
   #   (import ./../overlays/unison.nix inputs.nivSources)
   # ];
 
-  # system = {
-  #   defaults = {
-  #     dock = {
-  #       autohide = true;
-  #       orientation = "left";
-  #     };
+  system = {
+    defaults = {
+      dock = {
+        autohide = true;
+      };
 
-  #     trackpad = {
-  #       Clicking = true;
-  #       TrackpadThreeFingerDrag = true;
-  #     };
+      trackpad = {
+        Clicking = true;
+        TrackpadThreeFingerDrag = true;
+      };
 
-  #     NSGlobalDomain = {
-  #       "com.apple.trackpad.scaling" = 3.0;
-  #       "com.apple.mouse.tapBehavior" = 1;
-  #       "com.apple.sound.beep.feedback" = 1;
-  #       InitialKeyRepeat = 10;
-  #       KeyRepeat = 1;
-  #       ApplePressAndHoldEnabled = false;
-  #     };
+      NSGlobalDomain = {
+        "com.apple.trackpad.scaling" = 3.0;
+        "com.apple.mouse.tapBehavior" = 1;
+        "com.apple.sound.beep.feedback" = 1;
+        InitialKeyRepeat = 10;
+        KeyRepeat = 1;
+        ApplePressAndHoldEnabled = false;
+      };
 
-  #    #CustomUserPreferences = {};
-  #    #CustomSystemPreferences = {};
-  #   };
+     #CustomUserPreferences = {};
+     #CustomSystemPreferences = {};
+    };
 
-  #   keyboard = {
-  #     enableKeyMapping = true;
-  #     remapCapsLockToControl = true;
-  #   };
-
-  # };
+    keyboard = {
+      enableKeyMapping = true;
+      remapCapsLockToControl = true;
+    };
+  };
+  
+  security.pam.enableSudoTouchIdAuth = true;
 }

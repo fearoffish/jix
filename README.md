@@ -9,7 +9,8 @@ sh <(curl -L https://nixos.org/nix/install)
 
 On a fresh MacOS install you can run the following to bootstrap your system.
 ``` sh
-make darwin
+make darwin # answer no to editing the file, then yes for all
+sudo rm /etc/nix/nix.conf
 make bootstrap
 ```
 

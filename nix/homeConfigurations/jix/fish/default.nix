@@ -19,7 +19,7 @@
     interactiveShellInit = ''
       set -g fish_key_bindings fish_hybrid_key_bindings
 
-      eval "$(/opt/homebrew/bin/brew shellenv)"
+      # eval "$(/opt/homebrew/bin/brew shellenv)"
 
       # asdf
       source /opt/homebrew/opt/asdf/libexec/asdf.fish
@@ -27,7 +27,7 @@
       fish_add_path ~/.local/bin
 
       # direnv
-      direnv hook fish | source
+      # direnv hook fish | source
     '';
 
     plugins =

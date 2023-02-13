@@ -9,6 +9,7 @@ darwin:
 
 .PHONY: bootstrap
 bootstrap: ## Activate system on fresh MacOS.
+	sudo rm -f /etc/nix/nix.conf && \
 	env NIX_CONF_DIR="$(CURDIR)" nix run
 
 .PHONY: update
