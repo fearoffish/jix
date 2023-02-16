@@ -29,7 +29,7 @@
       };
 
       NSGlobalDomain = {
-        "com.apple.trackpad.scaling" = 3.0;
+        "com.apple.trackpad.scaling" = 2.0;
         "com.apple.mouse.tapBehavior" = 1;
         "com.apple.sound.beep.feedback" = 1;
         InitialKeyRepeat = 10;
@@ -43,9 +43,34 @@
 
     keyboard = {
       enableKeyMapping = true;
-      remapCapsLockToControl = true;
+      remapCapsLockToEscape = true;
     };
   };
   
   security.pam.enableSudoTouchIdAuth = true;
+
+  homebrew = {
+    enable = true;
+
+    casks = [
+      "1password-beta"
+      "1password-cli-beta"
+      "docker"
+      "iterm2"
+      "kaleidoscope"
+      "keybase"
+      "keyboard-maestro"
+      "lunar"
+      "raycast"
+      "setapp"
+      "sigmaos"
+      "sublime-text"
+      "zoom"
+    ];
+    brews = [
+    ];
+  };
+
+  # environment = {
+  # };
 }
