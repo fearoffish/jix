@@ -471,7 +471,7 @@ Throughout this document, you will find helpful snippets I like to define for ce
 
 ** Inline completion
 
-I add the TabNine autocompletion framework too, for some private AI goodness.
+I add the TabNine autocompletion framework too, for some private AI goodness. Not sure if I managed it.
 
 #+caption: $DOOMDIR/packages.el
 #+begin_src emacs-lisp :tangle packages.el
