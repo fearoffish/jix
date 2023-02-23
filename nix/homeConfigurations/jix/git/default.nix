@@ -43,6 +43,7 @@
       github.user = "fearoffish";
       gitlab.user = "fearoffish";
       pull.ff = "only";
+      push.autoSetupRemote = true;
     };
     aliases = {
       # View abbreviated SHA, description, and history graph of the latest 20 commits
