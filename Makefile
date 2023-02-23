@@ -9,6 +9,7 @@ darwin:
 
 .PHONY: bootstrap
 bootstrap: ## Activate system on fresh MacOS.
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && \
 	sudo rm -f /etc/nix/nix.conf && \
 	env NIX_CONF_DIR="$(CURDIR)" nix run
 

@@ -1101,29 +1101,6 @@ To make ~string-inflection~ to work nice with Evil, I will create an /Evil opera
   (define-key evil-normal-state-map (kbd "g~") 'my-evil-operator-string-inflection))
 #+end_src
 
-*** GPT
-
-In order to have fun with AI and refactor some code, and see how new languages might be used...let's add GPT
-
-#+caption: $DOOMDIR/packages.el
-#+begin_src emacs-lisp :tangle packages.el
-(package! chatgpt
-  :recipe (:host github :repo "joshcho/ChatGPT.el" :files ("dist" "*.el")))
-#+end_src
-
-#+caption: $DOOMDIR/config.el
-#+begin_src emacs-lisp
-(use-package! chatgpt
-  :defer t
-  :config
-  (unless (boundp 'python-interpreter)
-    (defvaralias 'python-interpreter 'python-shell-interpreter))
-  (setq chatgpt-repo-path (expand-file-name "straight/repos/ChatGPT.el/" doom-local-dir))
-  (set-popup-rule! (regexp-quote "*ChatGPT*")
-    :side 'bottom :size .5 :ttl nil :quit t :modeline nil)
-  :bind ("C-c q" . chatgpt-query))
-#+end_src
-
 ** Ruby Hash Syntax Toggle
 
 I like to be able to switch between hash syntaxes when fixing old code
@@ -1574,13 +1551,7 @@ Currently, I narrowed my selection to these 2 fonts:
 
 Shamelessly copied from [[https://systemcrafters.net/emacs-tips/presentations-with-org-present/][System Crafters]]
 
-To install them:
-
-#+caption: Commands to install fonts with Homebrew
-#+begin_src shell :tangle no
-brew tap homebrew/cask-fonts
-brew install --cask font-iosevka font-jetbrains-mono
-#+end_src
+No need to install them, my nix setup handles that. It grabs them from Homebrew.
 
 The rest of the rules are more subjective, and in all honesty, the methodology I used to decide which slant, and weight to use to each one of the text elements is non-existent. I simply tried, checked how it looked, and asked myself, /"Is this a nice looking element?"/. If the answer was yes, I kept the configuration.
 

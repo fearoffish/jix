@@ -68,6 +68,7 @@
       libxml2
       lorri # for shell.nix caching stuff?
       lzma
+      nixfmt
       pandoc
       pinentry_mac # Necessary for GPG
       pkg-config

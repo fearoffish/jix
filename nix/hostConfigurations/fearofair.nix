@@ -66,8 +66,11 @@
       "1password-cli"
       "caffeine"
       "docker"
+      "font-iosevka-aile"
+      "font-iosevka-nerd-font"
       "istat-menus"
       "iterm2"
+      "font-jetbrains-mono"
       "kaleidoscope"
       "keybase"
       "keyboard-maestro"
@@ -82,6 +85,9 @@
     ];
     brews = [
       "asdf"
+    ];
+    taps = [
+      "homebrew/cask-fonts"
     ];
   };
 
