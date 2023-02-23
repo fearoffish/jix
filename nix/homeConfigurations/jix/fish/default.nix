@@ -19,12 +19,12 @@
     interactiveShellInit = ''
       set -g fish_key_bindings fish_hybrid_key_bindings
 
-      # eval "$(/opt/homebrew/bin/brew shellenv)"
+      eval "$(/opt/homebrew/bin/brew shellenv)"
 
       # asdf
-      # source /opt/homebrew/opt/asdf/libexec/asdf.fish
+      source /opt/homebrew/opt/asdf/libexec/asdf.fish
 
-      fish_add_path ~/.local/bin
+      fish_add_path ~/.local/bin ~/.emacs.d/bin/
 
       # direnv
       # direnv hook fish | source
@@ -46,4 +46,6 @@
   home.file = {
     # ".local/share/fish/fish_history".source = "${config.dots}/fish/fish_history";
   };
+
+  fonts.fontconfig.enable = true;
 }

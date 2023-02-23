@@ -35,10 +35,19 @@
         InitialKeyRepeat = 10;
         KeyRepeat = 1;
         ApplePressAndHoldEnabled = false;
+        AppleFontSmoothing = 2;
+
+        NSAutomaticCapitalizationEnabled = false;
+        NSAutomaticDashSubstitutionEnabled = false;
+        NSAutomaticPeriodSubstitutionEnabled = false;
+        NSAutomaticQuoteSubstitutionEnabled = false;
+        NSAutomaticSpellingCorrectionEnabled = false;
+        NSNavPanelExpandedStateForSaveMode = true;
+        NSNavPanelExpandedStateForSaveMode2 = true;
       };
 
-     #CustomUserPreferences = {};
-     #CustomSystemPreferences = {};
+      #CustomUserPreferences = {};
+      #CustomSystemPreferences = {};
     };
 
     keyboard = {
@@ -53,9 +62,11 @@
     enable = true;
 
     casks = [
-      "1password-beta"
-      "1password-cli-beta"
+      "1password"
+      "1password-cli"
+      "caffeine"
       "docker"
+      "istat-menus"
       "iterm2"
       "kaleidoscope"
       "keybase"
@@ -64,10 +75,13 @@
       "raycast"
       "setapp"
       "sigmaos"
+      "slack"
+      "snapmaker-luban"
       "sublime-text"
       "zoom"
     ];
     brews = [
+      "asdf"
     ];
   };
 

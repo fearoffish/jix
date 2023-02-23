@@ -31,8 +31,11 @@
     manual.manpages.enable = false;
 
     home.packages = with pkgs; [
-      any-nix-shell
       # asdf-vm
+      # direnv # Per-directory environment variables (required by lorri)
+      # ncdu # a great large file and folder finder with a tui to help cleanup stuffs
+      # niv # Nix dependency management
+      any-nix-shell
       autoconf # Broadly used tool, no clue what it does
       bash # /bin/bash
       bat
@@ -42,11 +45,12 @@
       curl # An old classic
       deadnix # scan for unused nix code
       difftastic
-      # direnv # Per-directory environment variables (required by lorri)
       exa # ls replacement written in Rust
       exercism # exercises to learn and teach programming
       fd # find replacement written in Rust
+      ffmpeg
       fzf # Fuzzy finder
+      gcc
       gh # github cli
       git # git maybe?
       git-branchless # git undo and more
@@ -57,19 +61,17 @@
       gmp
       graphviz
       heroku
+      jetbrains-mono
       jq # JSON parsing for the CLI
       lazygit # nice tui for git
       libnotify # for those sweet sweet notifications
       libxml2
       lorri # for shell.nix caching stuff?
-      pngpaste
-      sumneko-lua-language-server # for syntax in neovim
       lzma
-      # ncdu # a great large file and folder finder with a tui to help cleanup stuffs
-      # niv # Nix dependency management
-      gcc
-      pkg-config
+      pandoc
       pinentry_mac # Necessary for GPG
+      pkg-config
+      pngpaste
       qemu # emulator
       re2c # regex compiler
       ripgrep # grep replacement written in Rust
@@ -77,9 +79,10 @@
       rnix-lsp # nix language server
       s3cmd # s3 cli
       sd # Fancy sed replacement
-      skim # High-powered fuzzy finder written in Rust
       shellcheck # bash linter
+      skim # High-powered fuzzy finder written in Rust
       sqlite # sqlite cli
+      sumneko-lua-language-server # for syntax in neovim
       tealdeer # tldr for various shell tools
       tmux # cli window manager
       viddy # a modern watch
