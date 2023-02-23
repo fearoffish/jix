@@ -471,7 +471,7 @@ Throughout this document, you will find helpful snippets I like to define for ce
 
 ** Inline completion
 
-I add the TabNine autocompletion framework too, for some private AI goodness. Not sure if I managed it.
+I add the TabNine autocompletion framework too, for some private AI goodness.
 
 #+caption: $DOOMDIR/packages.el
 #+begin_src emacs-lisp :tangle packages.el
@@ -604,55 +604,7 @@ entire line, but keep the correct indentation on it."
 Adding this advice as an /autoload/ function on our configuration is all we need to get the functionality working. When Doom loads the ~smartparens~ on the default module, it replaces the Emacs ~delete-backward-char~ function with its ~+default--delete-backward-char-a~ advice, which will load our function, which, in turn, installs itself as a =:before= advice on Doom's function.
 
 ** Balanced pairs
-In most editors (as far as editors go, I only saw Emacs allowing balanced pairs), there is no balanced pair protection. If you remove a line where a closing character is, without removing its open pair, your buffer becomes unbalanced.
-
-Emacs has some packages that help you keep the balance on pair characters, even if you try to remove a line containing just one of the pairs.
-
-Among the packages I checked, the two top two contenders for me are [[https://github.com/noctuid/lispyville][~lispville~]] and [[https://github.com/Fuco1/smartparens][~smartparens~]]  + ([[https://github.com/luxbock/evil-cleverparens][~evil-cleverparens~]] or [[https://github.com/expez/evil-smartparens][~evil-smartparens~]]).
-
-From the two, ~lispville~ seams to be the most maintained, but it depends on ~lispy~ and even though you can use it just for the balance protection, it requires much more code and effort to do it right, so my choice is ~smartparens~ + ~evil-cleverparens~. I tried ~evil-smartparens~ before, and it is not as polished as ~evil-cleverparens~.
-
-To install them, make sure ~smartparens~ is enable in your =init.el=:
-
-#+caption: $DOOMDIR/init.el
-#+begin_src emacs-lisp :tangle no
-  :config
-  (default
-      +bindings
-      +smartparens)
-#+end_src
-
-And ~evil-cleverparens~ is on the =packages.el= file as well:
-
-#+caption: $DOOMDIR/packages.el
-#+begin_src emacs-lisp :tangle packages.el
-(package! evil-cleverparens)
-#+end_src
-
-These changes will make Doom download them into its local cache when you run =doom sync=.
-
-Before I configure these packages, I would like to explain why I turn on balance protection only on Emacs modes deriving from ~prog-mode~.
-
-The simplest explanation is that you don't really need pair balance protection in any other place then your coding buffers. I did some informal experiments on this area, and found that pair protection turned on when you write prose is magnitudes more annoying than useful, so I will stick with protection only in ~prog-mode~.
-
-To make Emacs turn ~smartparens~ and related packages correctly, make sure that you turn on ~evil-cleverparens-mode~ on the ~smartparens-enabled-hook~, and only enable the strict mode when editing a ~prog-mode~ buffer:
-
-#+caption: $DOOMDIR/config.el
-#+begin_src emacs-lisp
-(use-package! smartparens
-  :init (add-hook 'smartparens-strict-mode-hook #'evil-cleverparens-mode)
-  :hook ((prog-mode . smartparens-strict-mode)))
-#+end_src
-
-Doom will turn on ~smartparens~ appropriately, so we don't need to hook anything else to get this feature working, but there is one more configuration that I like to have on, all the time. It is the ability of Emacs to highlight the /other pair/ when the cursor is on top of a character pair.
-
-To do so, enable the ~show-smartparens-global-mode~ after enabling ~smartparens~:
-
-#+caption: $DOOMDIR/config.el
-#+begin_src emacs-lisp
-(after! smartparens
-  (show-smartparens-global-mode 1))
-#+end_src
+I handle this with =company-tabnine= now.
 
 ** Useful line numbers
 A long time ago, I read on some Vim mailing list, an opinion on how line numbers should behave on different editing modes (if you know who is the original author of such idea, please let me know, so I can give credit where credit is due). Since on normal mode is pretty useful to know the line count from the cursor until some target text, it makes more sense to have the =relative number= shown on the gutter, but when I'm editing the buffer, is nice to have a sense of size by looking to the line numbers.
