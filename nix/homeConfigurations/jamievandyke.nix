@@ -49,6 +49,7 @@
       exercism # exercises to learn and teach programming
       fd # find replacement written in Rust
       ffmpeg
+      fontconfig
       fzf # Fuzzy finder
       gcc
       gh # github cli

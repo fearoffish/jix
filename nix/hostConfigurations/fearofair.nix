@@ -1,16 +1,11 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ config, lib, pkgs, ... }:
 # for configurable nixos modules see (note that many of them might be linux-only):
 # https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/module-list.nix
 #
 # for configurable nix-darwin modules see
 # https://github.com/LnL7/nix-darwin/blob/master/modules/module-list.nix
 {
-  environment.systemPackages = with pkgs; [nixVersions.stable];
+  environment.systemPackages = with pkgs; [ nixVersions.stable ];
   documentation.enable = false;
 
   # nixpkgs.overlays = [
@@ -19,9 +14,7 @@
 
   system = {
     defaults = {
-      dock = {
-        autohide = true;
-      };
+      dock = { autohide = true; };
 
       trackpad = {
         Clicking = true;
@@ -55,7 +48,7 @@
       remapCapsLockToEscape = true;
     };
   };
-  
+
   security.pam.enableSudoTouchIdAuth = true;
 
   homebrew = {
@@ -68,12 +61,16 @@
       "docker"
       "font-iosevka-aile"
       "font-iosevka-nerd-font"
+      "font-fontawesome"
+      "font-jetbrains-mono"
+      "font-material-design-icons-webfont"
+      "gpg-suite"
       "istat-menus"
       "iterm2"
-      "font-jetbrains-mono"
       "kaleidoscope"
       "keybase"
       "keyboard-maestro"
+      "linearmouse"
       "lunar"
       "raycast"
       "setapp"
@@ -83,12 +80,8 @@
       "sublime-text"
       "zoom"
     ];
-    brews = [
-      "asdf"
-    ];
-    taps = [
-      "homebrew/cask-fonts"
-    ];
+    brews = [ "asdf" ];
+    taps = [ "homebrew/cask-fonts" ];
   };
 
   # environment = {

@@ -489,7 +489,7 @@ I add the TabNine autocompletion framework too, for some private AI goodness.
 
 ** Spelling
 
-I set the spelling dictionary to default to =en_US= while coding, but when writing I manually run =ispell-change-dictionary= to set it to =en_GB=
+I remove spelling as it isn't needed for me.
 
 #+caption: $DOOMDIR/config.el
 #+begin_src emacs-lisp
@@ -497,38 +497,7 @@ I set the spelling dictionary to default to =en_US= while coding, but when writi
 #+end_src
 
 ** Automatic indentation
-I appreciate the fact that majority of editor these days can keep the indentation of the previous line, and some of them, are even capable of adding indentation where is necessary. Although this is a good start, I want my editor to do more. When I add braces around a code, or when I make a one-line statement, a multi-line one, I want the editor to reformat my file to properly indent it.
-
-Emacs offers a mode called ~electric-indent-mode~ where the ultimate goal, is to achieve exactly what I described, but unfortunately, the current state of the mode is falling short of it.
-
-The solution I found, is an external package called [[https://github.com/Malabarba/aggressive-indent-mode][~aggressive-indent~]] that re-indent the entire file on every change.
-
-It is a bit too aggressive, but so far is working just fine for me, so let's add it to our packages:
-
-#+caption: $DOOMDIR/packages.el
-#+begin_src emacs-lisp :tangle packages.el
-(package! aggressive-indent)
-#+end_src
-
-A point to note is where to use this package. I need it on ~prog-mode~, but due to some particularities of certain languages (did someone said Python here?), I need to specify the set of languages I want to support aggressive indent. The reader can check the list of supported language on the following code snippet:
-
-#+caption: $DOOMDIR/config.el
-#+begin_src emacs-lisp
-(use-package! aggressive-indent
-  :hook ((emacs-lisp-mode
-          c-mode
-          cpp-mode
-          rust-mode
-          go-mode
-          java-mode
-          kotlin-mode
-          ruby-mode
-          shell-mode
-          javascript-mode
-          typescript-mode) . aggressive-indent-mode))
-#+end_src
-
-The reason to not include Python on this list, is the fact that Python uses indentation as block delimiter, and the package does not know how where a block ends, and a new one starts, causing re-indentation to pretty much break the code.
+This is too aggressive so I removed it.
 
 ** Smart backspace
 As part of my day job, I had to do a lot of Android development, and inevitably I used [[https://www.jetbrains.com/][JetBrains]]
@@ -1589,7 +1558,7 @@ To make my typography rules easy to refer to, I create one face for each rule as
   :group 'my-typography)
 
 (defface my-default-ui `((t :font ,(font-spec :family "JetBrains Mono"
-                                              :size 14
+                                              :size 16
                                               :weight 'light)))
   "Extra face used on UI elements."
   :group 'my-typography)
