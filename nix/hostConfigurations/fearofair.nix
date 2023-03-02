@@ -57,6 +57,7 @@
     casks = [
       "1password"
       "1password-cli"
+      "brave-browser"
       "caffeine"
       "docker"
       "font-iosevka-aile"
