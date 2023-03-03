@@ -79,10 +79,11 @@
       "slack"
       "snapmaker-luban"
       "sublime-text"
+      "visual-studio-code"
       "zoom"
     ];
     brews = [ "asdf" ];
-    taps = [ "homebrew/cask-fonts" ];
+    taps = [ "homebrew/cask-fonts" "alphagov/gds" ];
   };
 
   # environment = {

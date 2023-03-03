@@ -1,10 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  inputs,
-  ...
-}: {
+{ config, lib, pkgs, inputs, ... }: {
   programs.direnv = import ./direnv.nix;
   programs.starship = import ./starship;
   programs.fzf.enable = true;
@@ -12,7 +6,7 @@
   programs.fish = {
     enable = true;
 
-    functions = import ./functions.nix {inherit inputs lib;};
+    functions = import ./functions.nix { inherit inputs lib; };
     shellAliases = import ./aliases.nix;
     shellAbbrs = import ./abbrs.nix;
 
@@ -24,23 +18,19 @@
       # asdf
       source /opt/homebrew/opt/asdf/libexec/asdf.fish
 
-      fish_add_path ~/.local/bin ~/.emacs.d/bin/
+      fish_add_path ~/.local/bin ~/.emacs.d/bin/ /Applications/Docker.app/Contents/Resources/bin/
 
       # direnv
       # direnv hook fish | source
     '';
 
-    plugins =
-      map (name: {
-        inherit name;
-        src = inputs.nivSources."fish-${name}";
-      })
-      ["pure" "done" "fzf.fish" "pisces" "z"];
+    plugins = map (name: {
+      inherit name;
+      src = inputs.nivSources."fish-${name}";
+    }) [ "pure" "done" "fzf.fish" "pisces" "z" ];
   };
-  home.sessionPath = ["~/.emacs.d/bin"];
-  home.sessionVariables = {
-    EDITOR = "subl -w";
-  };
+  home.sessionPath = [ "~/.emacs.d/bin" ];
+  home.sessionVariables = { EDITOR = "subl -w"; };
   programs.zoxide = import ./zoxide.nix;
 
   home.file = {
