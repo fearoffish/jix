@@ -1,0 +1,8 @@
+[user]
+  email = "jamie.vandyke@digital.cabinet-office.gov.uk"
+  name = "Jamie van Dyke"
+  signingkey = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDMIuRne37GFI/lQcfLKHu48h6BlsWjvNu5FsFxlAr35VXRHwE8lyYkNX9bgLwtOZwnGgL8yL2pjDbWoOUC2+xxRqXIGMqwFfzyHsMEIvEpL9u8NQ08NY26r5Lr27EZHbTnQmCTn7OK+AGbkuToUcv4Kj8X+3aqLAEJRZFv5iRBEr7E2Ms4Z5E1/MbJoOuOFGq/gW8gCoohOU2UgbK2++IYXWK+Om24CdOqMsCPmdtiNy3RI2tpMEtv9hq99qqxMIud6ZMEcfG9+1pmlbtkhdZgOXcpp4KdYEboZcxOT4GaM/pzDFO2bfdRjmxENP6V2FrHRtIiBwQ01MG0KAEel3Gbt58VeV/Iapx8UCgSiMhOWWCE4uzDOQsoJgvh5VAKP40u/pQVo21DdzkRQFfkahavYiwla30Hooqpnu7l/LH+rxgQbDVeu9EqxrYldG/vVl/geCoMXTMnW2MLcpJ/0yJdaEI2F8pIs5gpGmh6Y+/NZkrH10XtoISfA5y9kcvjxD3ecMuqRw2EghhBuU7fC0J/4GpNGcF0bu4kXFkpqgBi5nKSQeXxpMRAxOI8cFdKlrXxhAOKQEQtNQ1NxOFI0DoRIYq7zgN762l7Fy16CbOH7wHMImZavqnCpZKjg84dK96uzQULhqdvtR7sPTrHvD+Kc6m8YHTBMp+q80RwEtyqHQ=="
+  signByDefault = true
+
+[safe]
+  directory = *

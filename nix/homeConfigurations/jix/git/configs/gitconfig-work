@@ -1,8 +1,0 @@
-[user]
-  email = "jamie.van.dyke@sap.com"
-  name = "Jamie van Dyke"
-  signingkey = "9E38EBA7545107BA01517C7847FCD8BACC05E151"
-  signByDefault = true
-
-[safe]
-  directory = *
