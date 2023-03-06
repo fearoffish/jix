@@ -24,7 +24,7 @@
       NSGlobalDomain = {
         "com.apple.trackpad.scaling" = 2.0;
         "com.apple.mouse.tapBehavior" = 1;
-        "com.apple.sound.beep.feedback" = 1;
+        "com.apple.sound.beep.feedback" = 0;
         InitialKeyRepeat = 10;
         KeyRepeat = 1;
         ApplePressAndHoldEnabled = false;

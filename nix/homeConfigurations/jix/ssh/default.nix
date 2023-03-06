@@ -6,9 +6,13 @@
     forwardAgent = true;
 
     matchBlocks = {
+      "*" = {
+        extraOptions.IdentityAgent = ''
+          "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"'';
+      };
       "box.fearof.fish" = {
+        user = "jamievandyke";
         hostname = "172.105.133.7";
-        identityAgent = "~/.1password/agent.sock";
       };
     };
   };
