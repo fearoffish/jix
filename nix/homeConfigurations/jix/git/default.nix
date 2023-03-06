@@ -13,10 +13,16 @@
     };
     ignores =
       [ ".DS_Store" "*.swp" ".overcommit.yml" ".projectile" ".tool-versions" ];
-    includes = [{
-      path = "/Users/jamievandyke/a/gov.uk/.gitconfig";
-      condition = "gitdir:/Users/jamievandyke/a/gov.uk/.gitconfig";
-    }];
+    includes = [
+      {
+        path = "/Users/jamievandyke/a/gov.uk/.gitconfig";
+        condition = "gitdir:/Users/jamievandyke/a/gov.uk/.gitconfig";
+      }
+      {
+        path = "/Users/jamievandyke/a/.gitconfig";
+        condition = "gitdir:/Users/jamievandyke/a/.gitconfig";
+      }
+    ];
     extraConfig = {
       init = { defaultBranch = "main"; };
       pager.difftool = true;
@@ -72,5 +78,6 @@
 
   home.file.".config/fish/completions/wt.fish".source = ./completions/wt.fish;
   home.file.".local/bin/wt".source = ./plugins/wt;
+  home.file."a/.gitconfig".source = ./configs/personal;
   home.file."a/gov.uk/.gitconfig".source = ./configs/gov.uk;
 }
