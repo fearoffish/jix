@@ -1,4 +1,10 @@
-{ config, lib, pkgs, inputs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}: {
   programs.git = {
     enable = true;
     userName = "Jamie van Dyke";
@@ -11,8 +17,7 @@
         syntax-theme = "GitHub";
       };
     };
-    ignores =
-      [ ".DS_Store" "*.swp" ".overcommit.yml" ".projectile" ".tool-versions" ];
+    ignores = [".DS_Store" "*.swp" ".overcommit.yml" ".projectile" ".tool-versions"];
     includes = [
       {
         path = "~/a/gov.uk/.gitconfig";
@@ -22,11 +27,11 @@
         path = "~/a/.gitconfig";
         condition = "gitdir:/a/";
       }
-      { path = "/a/gov.uk/.git-together"; }
+      {path = "/a/gov.uk/.git-together";}
     ];
     extraConfig = {
       user.useConfigOnly = true;
-      init = { defaultBranch = "main"; };
+      init = {defaultBranch = "main";};
       pager.difftool = true;
       diff.tool = "difftastic";
       difftool.prompt = false;
@@ -64,8 +69,7 @@
         log --graph --color --pretty=format:"%C(yellow)%H%C(green)%d%C(reset)%n%x20%cd%n%x20%cn%x20(%ce)%n%x20%s%n"'';
 
       # clean a git repo and submodules
-      rinse =
-        "!git reset --hard --recurse-submodule && git submodule sync --recursive && git submodule update --init --force --recursive && git clean -ffdx && git submodule foreach --recursive git clean -ffdx";
+      rinse = "!git reset --hard --recurse-submodule && git submodule sync --recursive && git submodule update --init --force --recursive && git clean -ffdx && git submodule foreach --recursive git clean -ffdx";
 
       # submodules update and init recursive
       suri = "submodule update --init --recursive --force";
