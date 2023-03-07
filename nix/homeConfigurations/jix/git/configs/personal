@@ -1,17 +1,8 @@
 [user]
   email = "me@fearof.fish"
-  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAsofD55EXCI4Ohh1j8mybzGNgTc9TpQTZat6tdjJzhf
+  signingkey = "C685939B1C7F7046"
   signByDefault = true
 
 [safe]
   directory = *
 
-[gpg]
-  format = ssh
-
-[gpg "ssh"]
-  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
-  allowedSignersFile = "$HOME/.allowed_signers"
-
-[commit]
-  gpgsign = true
