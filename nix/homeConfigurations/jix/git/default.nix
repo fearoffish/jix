@@ -15,15 +15,17 @@
       [ ".DS_Store" "*.swp" ".overcommit.yml" ".projectile" ".tool-versions" ];
     includes = [
       {
-        path = "/Users/jamievandyke/a/gov.uk/.gitconfig";
-        condition = "gitdir:/Users/jamievandyke/a/gov.uk/.gitconfig";
+        path = "~/a/gov.uk/.gitconfig";
+        condition = "gitdir:/a/gov.uk/";
       }
       {
-        path = "/Users/jamievandyke/a/.gitconfig";
-        condition = "gitdir:/Users/jamievandyke/a/.gitconfig";
+        path = "~/a/.gitconfig";
+        condition = "gitdir:/a/";
       }
+      { path = "/a/gov.uk/.git-together"; }
     ];
     extraConfig = {
+      user.useConfigOnly = true;
       init = { defaultBranch = "main"; };
       pager.difftool = true;
       diff.tool = "difftastic";
@@ -39,6 +41,8 @@
       gitlab.user = "fearoffish";
       pull.ff = "only";
       push.autoSetupRemote = true;
+
+      git-mob-config.github-fetch = true;
     };
     aliases = {
       # View abbreviated SHA, description, and history graph of the latest 20 commits

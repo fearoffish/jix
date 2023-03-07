@@ -69,6 +69,7 @@
       ripgrep # grep replacement written in Rust
       ripgrep-all
       rnix-lsp # nix language server
+      rustup
       s3cmd # s3 cli
       sd # Fancy sed replacement
       shellcheck # bash linter

@@ -13,6 +13,7 @@
   gs = "git status";
   gco = "git checkout";
   gcb = "git checkout -b";
+  gcs = "git commit -S -m";
   gp = "git pull --rebase --no-commit";
   gz = "git stash";
   gza = "git stash apply";

@@ -37,3 +37,7 @@ format: ## Format all nix files.
 .PHONY: rollback
 rollback: # roll back the latest generation
 	nix run -- --rollback .
+
+.PHONY:	post-bootstrap
+post-bootstrap:	# install things nix couldn't
+	./scripts/post-bootstrap.sh
