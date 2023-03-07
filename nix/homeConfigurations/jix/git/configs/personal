@@ -1,6 +1,6 @@
 [user]
   email = "me@fearof.fish"
-  signingkey = "C685939B1C7F7046"
+  signingkey = "850BCA9364ED67DA"
   signByDefault = true
 
 [safe]
