@@ -1547,19 +1547,19 @@ To make my typography rules easy to refer to, I create one face for each rule as
 #+begin_src emacs-lisp
 (defface my-default-mono `((t :font ,(font-spec :family "JetBrains Mono"
                                                 :size 16
-                                                :weight 'light)))
+                                                )))
   "Default monospaced font used on majority of the buffers."
   :group 'my-typography)
 
 (defface my-big-face-mono `((t :font ,(font-spec :family "JetBrains Mono"
                                                  :size 26
-                                                 :weight 'light)))
+                                                 )))
   "Monospaced font used on presentation mode."
   :group 'my-typography)
 
 (defface my-default-ui `((t :font ,(font-spec :family "JetBrains Mono"
                                               :size 16
-                                              :weight 'light)))
+                                              )))
   "Extra face used on UI elements."
   :group 'my-typography)
 

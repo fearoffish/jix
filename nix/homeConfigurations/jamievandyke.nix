@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ config, lib, pkgs, ... }:
 # for configurable home-manager modules see:
 # https://github.com/nix-community/home-manager/blob/master/modules/modules.nix
 {
@@ -17,7 +12,8 @@
     };
   };
 
-  imports = [./jix/git ./jix/ssh ./jix/fish ./jix/gpg ./jix/emacs ./jix/iterm];
+  imports =
+    [ ./jix/git ./jix/ssh ./jix/fish ./jix/gpg ./jix/emacs ./jix/iterm ];
 
   config = {
     manual.html.enable = false;
@@ -62,6 +58,7 @@
       libxml2
       lorri # for shell.nix caching stuff?
       lzma
+      multimarkdown
       neovim
       nixfmt
       pandoc
