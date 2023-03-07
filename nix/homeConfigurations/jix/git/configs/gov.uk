@@ -1,8 +1,9 @@
 [user]
   email = "jamie.vandyke@digital.cabinet-office.gov.uk"
   signingkey = "C685939B1C7F7046"
-  signByDefault = true
 
 [safe]
   directory = *
 
+[commit]
+  sign = true

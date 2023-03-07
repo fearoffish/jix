@@ -20,10 +20,10 @@
     manual.manpages.enable = false;
 
     home.packages = with pkgs; [
-      # asdf-vm
       # direnv # Per-directory environment variables (required by lorri)
       # ncdu # a great large file and folder finder with a tui to help cleanup stuffs
       # niv # Nix dependency management
+      alejandra
       any-nix-shell
       autoconf # Broadly used tool, no clue what it does
       bash # /bin/bash

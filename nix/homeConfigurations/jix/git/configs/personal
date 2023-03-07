@@ -6,3 +6,5 @@
 [safe]
   directory = *
 
+[commit]
+  sign = true
