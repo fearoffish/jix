@@ -2,6 +2,10 @@
 help:
 	@cat $(MAKEFILE_LIST) | grep -E '^[a-zA-Z_-]+:.*?## .*$$' | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
+.PHONY: nix
+nix: ## install nix
+	sh <(curl -L https://nixos.org/nix/install)
+
 .PHONY: darwin
 darwin:
 	env NIX_CONF_DIR="$(CURDIR)" nix-build https://github.com/LnL7/nix-darwin/archive/master.tar.gz -A installer
