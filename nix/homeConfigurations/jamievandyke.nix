@@ -30,6 +30,7 @@
       bat
       bottom # istat menus on the cli
       btop # another istat top like monitor
+      certstrap
       coreutils
       curl # An old classic
       deadnix # scan for unused nix code
