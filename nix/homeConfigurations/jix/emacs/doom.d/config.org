@@ -124,20 +124,31 @@ To prevent Emacs from wrapping your text as it goes over the size of the screen,
 
 ** Inline completion
 
-I add the TabNine autocompletion framework too, for some private AI goodness.
+Add github co-pilot instead of TabNine (previous)
 
 #+caption: $DOOMDIR/packages.el
 #+begin_src emacs-lisp :tangle packages.el
-(package! company-tabnine)
+(package! copilot
+  :recipe (:host github :repo "zerolfx/copilot.el" :files ("*.el" "dist")))
 #+end_src
+
+Accept completion from copilot and fallback to company, first unbinding keys that clash:
+
+#+caption: $DOOMDIR/config.el
+#+begin_src emacs-lisp :tangle no
+#+end_src
+
+Then bind the keys to copilot:
 
 #+caption: $DOOMDIR/config.el
 #+begin_src emacs-lisp
-(after! company
-  (setq +lsp-company-backends '(company-tabnine :separate company-capf company-yasnippet))
-  (setq company-show-numbers t)
-  (setq company-idle-delay 0)
-)
+(use-package! copilot
+  :hook (prog-mode . copilot-mode)
+  :bind (("C-TAB" . 'copilot-accept-completion-by-word)
+         ("C-<tab>" . 'copilot-accept-completion-by-word)
+         :map copilot-completion-map
+         ("<tab>" . 'copilot-accept-completion)
+         ("TAB" . 'copilot-accept-completion)))
 #+end_src
 
 ** Spelling
@@ -167,6 +178,9 @@ To achieve this, I need a function that turns the /absolute/ line number when li
   (if display-line-numbers
       (setq display-line-numbers t)))
 #+end_src
+
+#+RESULTS:
+: my-line-number-absolute-h
 
 And another function to put the line numbers on /relative mode/ (but again, only if line numbers are visible):
 
@@ -428,6 +442,8 @@ Some aliases that I'm used to when working on the terminal:
    "vi"    "find-file-other-window $1"
    "vim"   "find-file-other-window $1"))
 #+end_src
+
+#+RESULTS:
 
 Window navigation mapping:
 

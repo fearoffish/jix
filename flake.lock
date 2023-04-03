@@ -47,14 +47,18 @@
         ]
       },
       "locked": {
-        "lastModified": 1676034284,
-        "narHash": "sha256-i556uEB+5AHMaKaVOD5VSyv7KBEyeNMnA3ZRzAtRCxs=",
-        "path": "/Users/jamievandyke/a/mk-darwin-system",
-        "type": "path"
+        "lastModified": 1674743928,
+        "narHash": "sha256-fx3wktU+pefg4SsQ5l3BzhYg4/3Gqo0j73cV5m+DgDQ=",
+        "owner": "fearoffish",
+        "repo": "mk-darwin-system",
+        "rev": "e86d79568e197e594de9eb82de6fa5c2d3972e87",
+        "type": "github"
       },
       "original": {
-        "path": "/Users/jamievandyke/a/mk-darwin-system",
-        "type": "path"
+        "owner": "fearoffish",
+        "ref": "main",
+        "repo": "mk-darwin-system",
+        "type": "github"
       }
     },
     "nix-darwin": {

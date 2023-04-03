@@ -37,10 +37,10 @@ in {
       exec ${emacsPkg}/bin/emacs --with-profile doom --daemon=doom "''${@}"
     '')
     (pkgs.writeScriptBin "ve" ''
-      exec ${emacsPkg}/bin/emacsclient -s doom -c "''${@}"
+      exec ${emacsPkg}/bin/emacsclient -s "/var/folders/31/jzq8krln4rn92fb1m2nrfpxm0000gq/T/emacs503/doom" -n -c "''${@}"
     '')
     (pkgs.writeScriptBin "e" ''
-      exec ${emacsPkg}/bin/emacsclient -s doom -nw "''${@}"
+      exec ${emacsPkg}/bin/emacsclient -s "/var/folders/31/jzq8krln4rn92fb1m2nrfpxm0000gq/T/emacs503/doom" -nw "''${@}"
     '')
     # (pkgs.writeScriptBin "emacsclient" ''
     #     exec ${emacsPkg}/bin/emacsclient "''${@}"

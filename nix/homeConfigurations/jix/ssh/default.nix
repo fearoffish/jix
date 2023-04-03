@@ -14,10 +14,13 @@
         user = "jamievandyke";
         hostname = "172.105.133.7";
       };
+      "fearofair.local" = { user = "jamievandyke"; };
+      "box" = {
+        user = "jamievandyke";
+        hostname = "65.109.144.45";
+        extraOptions.IdentityFile = ''"~/.ssh/box.pub"'';
+        extraOptions.IdentitiesOnly = "yes";
+      };
     };
   };
-  # TODO: handle this with nix not manually
-  # home.file = {
-  #   ".ssh/id_rsa".source = "${config.dots}/ssh/id_rsa";
-  #   ".ssh/id_rsa.pub".source = ./id_rsa.pub;
 }

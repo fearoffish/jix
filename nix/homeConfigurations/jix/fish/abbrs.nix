@@ -47,8 +47,10 @@
   mz = "mg SPC g / Z l";
   # list stash
 
-  ib = "iacbox -iv=iacbox.common.cdn.repositories.cloud.sap/iacbox-dev-arm:latest";
-  puri = "git pull && git suri";
   jinstall = "cd /a/jix && make install ; cd -";
-  src = "cd components/bosh/src";
+  # gh = "op plugin run -- gh";
+  aws = "op plugin run -- aws";
+  airoles =
+    "'/Users/jamie.vandyke/Library/Application Support/aichat/roles.yaml'";
+  shell = "aichat -r shell";
 }

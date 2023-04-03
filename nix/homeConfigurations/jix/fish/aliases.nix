@@ -6,4 +6,5 @@
   ".." = "cd ..";
   "..." = "cd ../..";
   be = "bundle exec";
+  bosh = "bosh-cli";
 }

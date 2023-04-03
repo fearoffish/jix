@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ config, lib, pkgs, ... }:
 # for configurable home-manager modules see:
 # https://github.com/nix-community/home-manager/blob/master/modules/modules.nix
 {
@@ -17,7 +12,8 @@
     };
   };
 
-  imports = [./jix/git ./jix/ssh ./jix/fish ./jix/gpg ./jix/emacs ./jix/iterm];
+  imports =
+    [ ./jix/git ./jix/ssh ./jix/fish ./jix/gpg ./jix/emacs ./jix/iterm ];
 
   config = {
     manual.html.enable = false;
@@ -29,11 +25,13 @@
       # niv # Nix dependency management
       alejandra
       any-nix-shell
+      aws-vault
       autoconf # Broadly used tool, no clue what it does
       bash # /bin/bash
       bat
       bottom # istat menus on the cli
       btop # another istat top like monitor
+      cargo
       coreutils
       curl # An old classic
       deadnix # scan for unused nix code
@@ -66,6 +64,7 @@
       neovim
       nixfmt
       pandoc
+      pass # password manager
       pinentry_mac # Necessary for GPG
       pkg-config
       pngpaste
@@ -74,7 +73,7 @@
       ripgrep # grep replacement written in Rust
       ripgrep-all
       rnix-lsp # nix language server
-      rustup
+      rustc
       s3cmd # s3 cli
       sd # Fancy sed replacement
       shellcheck # bash linter
@@ -82,6 +81,7 @@
       sqlite # sqlite cli
       sumneko-lua-language-server # for syntax in neovim
       tealdeer # tldr for various shell tools
+      terraform
       tmux # cli window manager
       viddy # a modern watch
       wget
@@ -94,7 +94,7 @@
       # Install dmg applications versioned by niv.
       # See `nix develop -c niv show` on the root of your flake.
       #
-      # nivApps.FirefoxDevApp
+      # nivApps.FantasticalApp
       # nivApps.KeyttyApp
       # nivApps.VimMotionApp
       # nivApps.Iterm2App
