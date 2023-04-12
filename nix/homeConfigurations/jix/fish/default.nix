@@ -34,7 +34,7 @@
     plugins = map (name: {
       inherit name;
       src = inputs.nivSources."fish-${name}";
-    }) ["pure" "done" "fzf.fish" "pisces" "z"];
+    }) ["pure" "done" "fzf" "pisces" "z"];
   };
   home.sessionPath = ["~/.emacs.d/bin"];
   home.sessionVariables = {EDITOR = "code -w";};

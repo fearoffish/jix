@@ -17,7 +17,7 @@
     };
   };
 
-  imports = [./jix/git ./jix/ssh ./jix/fish ./jix/gpg ./jix/emacs ./jix/iterm];
+  imports = [./jix/git ./jix/ssh ./jix/zsh ./jix/gpg ./jix/emacs ./jix/iterm];
 
   config = {
     manual.html.enable = false;

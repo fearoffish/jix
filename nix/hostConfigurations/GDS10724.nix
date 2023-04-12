@@ -62,15 +62,13 @@
     casks = [
       "1password"
       "1password-cli"
-      "brave-browser"
       "caffeine"
-      "docker"
+      "elgato-camera-hub"
       "elgato-stream-deck"
       "elgato-wave-link"
-      "elgato-camera-hub"
+      "font-fontawesome"
       "font-iosevka-aile"
       "font-iosevka-nerd-font"
-      "font-fontawesome"
       "font-jetbrains-mono"
       "font-material-design-icons-webfont"
       "gpg-suite"
@@ -80,15 +78,18 @@
       "keyboard-maestro"
       "linearmouse"
       "lunar"
+      "orbstack"
       "plover"
       "raycast"
       "setapp"
       "sigmaos"
+      "snapmaker-luban"
       "sublime-text"
       "visual-studio-code"
+      "warp"
       "zoom"
     ];
-    brews = ["asdf" "pidof" "bosh-cli"];
+    brews = ["asdf" "pidof" "bosh-cli" "awscli" "sqlite"];
     taps = ["homebrew/cask-fonts" "homebrew/cask-drivers" "alphagov/gds"];
   };
 

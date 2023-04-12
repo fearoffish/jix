@@ -29,7 +29,7 @@
         hostname = "10.0.0.101";
         extraOptions = {
           IdentitiesOnly = "yes";
-          IdentityFile = "~/.ssh/ed_25519.pub";
+          IdentityFile = "~/.ssh/id_ed25519.pub";
         };
       };
       "plex" = {
