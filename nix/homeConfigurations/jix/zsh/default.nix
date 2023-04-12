@@ -16,7 +16,7 @@
       eval "$(/opt/homebrew/bin/brew shellenv)"
       . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
-      export HOMEBREW_GITHUB_API_TOKEN=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
+      if [ -z "$HOMEBREW_GITHUB_API_TOKEN" ]; then echo "HOMEBREW_GITHUB_API_TOKEN is not set"; fiHOMEBREW_GITHUB_API_TOKEN is not set
     '';
   };
 
