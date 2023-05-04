@@ -56,42 +56,42 @@
 
   security.pam.enableSudoTouchIdAuth = true;
 
-  homebrew = {
-    enable = true;
+  # homebrew = {
+  #   enable = true;
 
-    casks = [
-      "1password"
-      "1password-cli"
-      "caffeine"
-      "elgato-camera-hub"
-      "elgato-stream-deck"
-      "elgato-wave-link"
-      "font-fontawesome"
-      "font-iosevka-aile"
-      "font-iosevka-nerd-font"
-      "font-jetbrains-mono"
-      "font-material-design-icons-webfont"
-      "gpg-suite"
-      "istat-menus"
-      "iterm2"
-      "kaleidoscope"
-      "keyboard-maestro"
-      "linearmouse"
-      "lunar"
-      "orbstack"
-      "plover"
-      "raycast"
-      "setapp"
-      "sigmaos"
-      "snapmaker-luban"
-      "sublime-text"
-      "visual-studio-code"
-      "warp"
-      "zoom"
-    ];
-    brews = ["asdf" "pidof" "bosh-cli" "awscli" "sqlite"];
-    taps = ["homebrew/cask-fonts" "homebrew/cask-drivers" "alphagov/gds"];
-  };
+  #   casks = [
+  #     "1password"
+  #     "1password-cli"
+  #     "caffeine"
+  #     "elgato-camera-hub"
+  #     "elgato-stream-deck"
+  #     "elgato-wave-link"
+  #     "font-fontawesome"
+  #     "font-iosevka-aile"
+  #     "font-iosevka-nerd-font"
+  #     "font-jetbrains-mono"
+  #     "font-material-design-icons-webfont"
+  #     "gpg-suite"
+  #     "istat-menus"
+  #     "iterm2"
+  #     "kaleidoscope"
+  #     "keyboard-maestro"
+  #     "linearmouse"
+  #     "lunar"
+  #     "orbstack"
+  #     "plover"
+  #     "raycast"
+  #     "setapp"
+  #     "sigmaos"
+  #     "snapmaker-luban"
+  #     "sublime-text"
+  #     "visual-studio-code"
+  #     "warp"
+  #     "zoom"
+  #   ];
+  #   brews = ["asdf" "pidof" "bosh-cli" "awscli" "sqlite"];
+  #   taps = ["homebrew/cask-fonts" "homebrew/cask-drivers" "alphagov/gds"];
+  # };
 
   # environment = {
   # };

@@ -41,7 +41,6 @@
       deadnix # scan for unused nix code
       difftastic
       exa # ls replacement written in Rust
-      exercism # exercises to learn and teach programming
       fd # find replacement written in Rust
       ffmpeg
       fontconfig

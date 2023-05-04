@@ -17,7 +17,7 @@
         syntax-theme = "GitHub";
       };
     };
-    ignores = [".DS_Store" "*.swp" ".overcommit.yml" ".projectile" ".tool-versions"];
+    ignores = [".DS_Store" "*.swp" ".overcommit.yml" ".projectile" ".tool-versions" "bosh-ca-cert"];
     includes = [
       {
         path = "~/a/gov.uk/.gitconfig";
