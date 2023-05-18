@@ -8,6 +8,10 @@
   programs.git = {
     enable = true;
     userName = "Jamie van Dyke";
+    userEmail = "me@fearof.fish";
+    signing.key = "850BCA9364ED67DA";
+    signing.signByDefault = true;
+
     delta = {
       enable = true;
       options = {
@@ -17,19 +21,16 @@
         syntax-theme = "GitHub";
       };
     };
-    ignores = [".DS_Store" "*.swp" ".overcommit.yml" ".projectile" ".tool-versions" "bosh-ca-cert"];
+    ignores = [".DS_Store" "*.swp" ".overcommit.yml" ".projectile" ".tool-versions" "bosh-ca-cert" "*.orig"];
     includes = [
       {
         path = "~/a/gov.uk/.gitconfig";
         condition = "gitdir:/a/gov.uk/";
       }
-      {
-        path = "~/a/.gitconfig";
-        condition = "gitdir:/a/";
-      }
       {path = "/a/gov.uk/.git-together";}
     ];
     extraConfig = {
+      # commit.gpgsign = true;
       user.useConfigOnly = true;
       init = {defaultBranch = "main";};
       pager.difftool = true;
@@ -37,9 +38,9 @@
       difftool.prompt = false;
       difftool.difftastic.cmd = "${pkgs.difftastic}/bin/difft $LOCAL $REMOTE";
 
-      merge.tool = "Kaleidoscope";
-      mergetool.Kaleidoscope.cmd = ''
-        /usr/local/bin/ksdiff --merge --output "$MERGED" --base "$BASE" -- "$LOCAL" --snapshot "$REMOTE" --snapshot'';
+      merge.tool = "vscode";
+      mergetool.vscode.cmd = ''
+        code --wait --merge $REMOTE $LOCAL $BASE $MERGED'';
       mergetool.trustExitCode = true;
 
       github.user = "fearoffish";
@@ -86,6 +87,6 @@
 
   home.file.".config/fish/completions/wt.fish".source = ./completions/wt.fish;
   home.file.".local/bin/wt".source = ./plugins/wt;
-  home.file."a/.gitconfig".source = ./configs/personal;
   home.file."a/gov.uk/.gitconfig".source = ./configs/gov.uk;
+  home.file.".git-authors".source = ./git-duet/git-authors;
 }
