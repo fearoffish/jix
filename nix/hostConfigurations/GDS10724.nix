@@ -71,7 +71,6 @@
       "font-iosevka-nerd-font"
       "font-jetbrains-mono"
       "font-material-design-icons-webfont"
-      "git-duet/tap/git-duet"
       "gpg-suite"
       "istat-menus"
       "iterm2"
@@ -90,8 +89,8 @@
       "warp"
       "zoom"
     ];
-    brews = ["asdf" "pidof" "bosh-cli" "awscli" "sqlite"];
-    taps = ["homebrew/cask-fonts" "homebrew/cask-drivers" "alphagov/gds"];
+    brews = ["asdf" "pidof" "bosh-cli" "awscli" "sqlite" "git-duet"];
+    taps = ["homebrew/cask-fonts" "homebrew/cask-drivers" "alphagov/gds" "git-duet/tap"];
   };
 
   environment = {
