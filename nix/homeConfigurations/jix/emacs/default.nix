@@ -11,7 +11,7 @@
   doomDir = "~/.doom.d";
   doomLocalDir = "~/.emacs.d/doom-local";
   doomEmacs = "~/.nix-out/doom-emacs";
-  doomConf = config.lib.file.mkOutOfStoreSymlink "/a/jix/nix/homeConfigurations/jix/emacs/doom.d";
+  doomConf = config.lib.file.mkOutOfStoreSymlink "/a/personal/jix/nix/homeConfigurations/jix/emacs/doom.d";
 in {
   programs.emacs.enable = true;
 

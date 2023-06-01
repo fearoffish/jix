@@ -82,7 +82,6 @@
       "raycast"
       "setapp"
       "sigmaos"
-      "snapmaker-luban"
       "sublime-text"
       "swiftbar"
       "visual-studio-code"

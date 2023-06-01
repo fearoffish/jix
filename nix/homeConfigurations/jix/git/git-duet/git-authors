@@ -1,7 +1,9 @@
 authors:
+  jvd: Jamie van Dyke; jamie.vandyke
   px: Panos Xynos; panos.xynos
   ms: Malcolm Saunders; malcolm.saunders
   jj: Jack Joy; jack.joy
   ah: Andy Hunt; andy.hunt
+  bc: Ben Corlett; ben.corlett
 email:
-  gov: digital.cabinet-office.gov.uk
+  domain: digital.cabinet-office.gov.uk

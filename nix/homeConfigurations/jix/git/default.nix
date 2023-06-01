@@ -1,10 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  inputs,
-  ...
-}: {
+{ config, lib, pkgs, inputs, ... }: {
   programs.git = {
     enable = true;
     userName = "Jamie van Dyke";
@@ -21,26 +15,33 @@
         syntax-theme = "GitHub";
       };
     };
-    ignores = [".DS_Store" "*.swp" ".overcommit.yml" ".projectile" ".tool-versions" "bosh-ca-cert" "*.orig"];
+    ignores = [
+      ".DS_Store"
+      "*.swp"
+      ".overcommit.yml"
+      ".projectile"
+      ".tool-versions"
+      "bosh-ca-cert"
+      "*.orig"
+    ];
     includes = [
       {
         path = "~/a/gov.uk/.gitconfig";
         condition = "gitdir:/a/gov.uk/";
       }
-      {path = "/a/gov.uk/.git-together";}
+      { path = "/a/gov.uk/.git-together"; }
     ];
     extraConfig = {
       # commit.gpgsign = true;
       user.useConfigOnly = true;
-      init = {defaultBranch = "main";};
+      init = { defaultBranch = "main"; };
       pager.difftool = true;
       diff.tool = "difftastic";
       difftool.prompt = false;
       difftool.difftastic.cmd = "${pkgs.difftastic}/bin/difft $LOCAL $REMOTE";
 
       merge.tool = "vscode";
-      mergetool.vscode.cmd = ''
-        code --wait --merge $REMOTE $LOCAL $BASE $MERGED'';
+      mergetool.vscode.cmd = "code --wait --merge $REMOTE $LOCAL $BASE $MERGED";
       mergetool.trustExitCode = true;
 
       github.user = "fearoffish";
@@ -70,7 +71,8 @@
         log --graph --color --pretty=format:"%C(yellow)%H%C(green)%d%C(reset)%n%x20%cd%n%x20%cn%x20(%ce)%n%x20%s%n"'';
 
       # clean a git repo and submodules
-      rinse = "!git reset --hard --recurse-submodule && git submodule sync --recursive && git submodule update --init --force --recursive && git clean -ffdx && git submodule foreach --recursive git clean -ffdx";
+      rinse =
+        "!git reset --hard --recurse-submodule && git submodule sync --recursive && git submodule update --init --force --recursive && git clean -ffdx && git submodule foreach --recursive git clean -ffdx";
 
       # submodules update and init recursive
       suri = "submodule update --init --recursive --force";
@@ -82,6 +84,12 @@
 
       # push with submodules
       spush = "push --recurse-submodules=on-demand";
+
+      # git duet aliases
+      dci = "duet-commit";
+      drv = "duet-revert";
+      dmg = "duet-merge";
+      drb = "rebase -i --exec 'git duet-commit --amend'";
     };
   };
 

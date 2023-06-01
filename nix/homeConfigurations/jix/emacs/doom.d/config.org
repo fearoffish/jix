@@ -333,6 +333,28 @@ Some other modes don't play nice with this particular key bindings I choose, and
       :gn "C-j" #'evil-window-down)
 #+end_src
 
+Thanks to a post by Dario over at https://codingstruggles.com/emacs/resizing-windows-doom-emacs.html I can also resize easily as he says "Now we can just press SPC w SPC and then hold one of h, j, k or l to resize the current window."
+
+#+caption: $DOOMDIR/config.el
+#+begin_src emacs-lisp
+(defhydra doom-window-resize-hydra (:hint nil)
+  "
+             _k_ increase height
+_h_ decrease width    _l_ increase width
+             _j_ decrease height
+"
+  ("h" evil-window-decrease-width)
+  ("j" evil-window-increase-height)
+  ("k" evil-window-decrease-height)
+  ("l" evil-window-increase-width)
+
+  ("q" nil))
+
+  (map!
+    (:prefix "w"
+      :desc "Hydra resize" :n "SPC" #'doom-window-resize-hydra/body))
+#+end_src
+
 *** Personal shortcuts
 Key bindings in this section are purely personal choice. Feel free to give them a try if you want, but if you're used to Doom Emacs already, my suggestion is to skip this section.
 
@@ -354,13 +376,12 @@ The first keymap group I like to add custom shortcuts is the multiple cursors. W
 #+end_src
 
 *** Theme
-I decided to give /Doom-Palenight/ a try, and so far I'm enjoying. I will admit that the purplish feeling of the palette is not my style, but overall, I'm not finding a bed choice.
-
-So, to make /Doom-Palenight/ the default theme, set the variable ~doom-theme~ to the symbol ='doom-palenight= to let Doom know what is the theme it should load:
+Trying out monokai pro
 
 #+caption: $DOOMDIR/config.el
 #+begin_src emacs-lisp
-(setq doom-theme 'doom-palenight)
+;; (setq doom-theme 'doom-palenight)
+(setq doom-theme 'doom-monokai-pro)
 #+end_src
 
 And because I like visual cues on my editor, I will turn on the ability to display *bold* and /italic/ faces for the theme:
@@ -394,6 +415,16 @@ After searching, I'd like to disable the highlight of the words, like =set :noh=
       :desc "Toggle search highlight"
       "t h"
       #'evil-ex-nohighlight)
+#+end_src
+
+
+*** Search All Windows
+
+When I'm searching with avy, I want to search all visible windows.
+
+#+caption: $DOOMDIR/config.el
+#+begin_src emacs-lisp
+  (setq avy-all-windows t)
 #+end_src
 
 ** LSP
