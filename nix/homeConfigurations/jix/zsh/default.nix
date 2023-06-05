@@ -1,13 +1,5 @@
-{
-  config,
-  lib,
-  pkgs,
-  inputs,
-  ...
-}: {
-  home.sessionPath = [
-    "$HOME/.local/bin"
-  ];
+{ config, lib, pkgs, inputs, ... }: {
+  home.sessionPath = [ "$HOME/.local/bin" ];
   programs.zsh = {
     enable = true;
     initExtra = ''
@@ -34,24 +26,24 @@
     zplug = {
       enable = true;
       plugins = [
-        {name = "zsh-users/zsh-autosuggestions";}
-        {name = "zsh-users/zsh-syntax-highlighting";}
-        {name = "zsh-users/zsh-completions";}
+        { name = "zsh-users/zsh-autosuggestions"; }
+        { name = "zsh-users/zsh-syntax-highlighting"; }
+        { name = "zsh-users/zsh-completions"; }
         {
           name = "plugins/aliases";
-          tags = [from:oh-my-zsh];
+          tags = [ "from:oh-my-zsh" ];
         }
         {
           name = "plugins/asdf";
-          tags = [from:oh-my-zsh];
+          tags = [ "from:oh-my-zsh" ];
         }
         {
           name = "plugins/brew";
-          tags = [from:oh-my-zsh];
+          tags = [ "from:oh-my-zsh" ];
         }
         {
           name = "norman-abramovitz/cf-zsh-autocomplete-plugin";
-          tags = [rename-to:cf];
+          tags = [ "rename-to:cf" ];
         }
       ];
     };
@@ -62,9 +54,7 @@
     enable = true;
     enableZshIntegration = true;
   };
-  programs.exa = {
-    enable = true;
-  };
+  programs.exa = { enable = true; };
 
   fonts.fontconfig.enable = true;
 

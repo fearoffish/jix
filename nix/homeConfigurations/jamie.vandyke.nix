@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ config, lib, pkgs, ... }:
 # for configurable home-manager modules see:
 # https://github.com/nix-community/home-manager/blob/master/modules/modules.nix
 {
@@ -17,7 +12,8 @@
     };
   };
 
-  imports = [./jix/git ./jix/ssh ./jix/zsh ./jix/gpg ./jix/emacs ./jix/iterm];
+  imports =
+    [ ./jix/git ./jix/ssh ./jix/fish ./jix/gpg ./jix/emacs ./jix/iterm ];
 
   config = {
     manual.html.enable = false;
@@ -48,8 +44,6 @@
       gcc
       gh # github cli
       git # git maybe?
-      git-branchless # git undo and more
-      git-extras # useful git extra stuff
       git-lfs
       gitAndTools.delta
       gitui
@@ -71,6 +65,7 @@
       pinentry_mac # Necessary for GPG
       pkg-config
       pngpaste
+      # pre-commit # git hooks
       qemu # emulator
       re2c # regex compiler
       ripgrep # grep replacement written in Rust

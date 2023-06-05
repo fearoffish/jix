@@ -1,24 +1,20 @@
-{
-  lib,
-  pkgs,
-  config,
-  inputs,
-  flake,
-  ...
-}: let
+{ lib, pkgs, config, inputs, flake, ... }:
+let
   inherit (inputs) nivSources;
   emacsPkg = pkgs.emacs28;
   doomDir = "~/.doom.d";
   doomLocalDir = "~/.emacs.d/doom-local";
   doomEmacs = "~/.nix-out/doom-emacs";
-  doomConf = config.lib.file.mkOutOfStoreSymlink "/a/personal/jix/nix/homeConfigurations/jix/emacs/doom.d";
+  doomConf = config.lib.file.mkOutOfStoreSymlink
+    "/a/personal/jix/nix/homeConfigurations/jix/emacs/doom.d";
 in {
   programs.emacs.enable = true;
 
   home.file.".doom.d".source = doomConf;
   home.file.".nix-out/doom-emacs".source = nivSources.emacs-doom;
   home.file.".emacs.d/init.el".source = "${nivSources.emacs-chemacs2}/init.el";
-  home.file.".emacs.d/early-init.el".source = "${nivSources.emacs-chemacs2}/early-init.el";
+  home.file.".emacs.d/early-init.el".source =
+    "${nivSources.emacs-chemacs2}/early-init.el";
   home.file.".emacs-profile".text = "doom";
   home.file.".emacs-profiles.el".text = ''
     (("doom" . ((user-emacs-directory . "${doomEmacs}")

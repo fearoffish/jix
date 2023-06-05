@@ -1,10 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  inputs,
-  ...
-}: {
+{ config, lib, pkgs, inputs, ... }: {
   programs.direnv = import ./direnv.nix;
   programs.starship = import ../starship;
   programs.fzf.enable = true;
@@ -12,7 +6,7 @@
   programs.fish = {
     enable = true;
 
-    functions = import ./functions.nix {inherit inputs lib;};
+    functions = import ./functions.nix { inherit inputs lib; };
     shellAliases = import ./aliases.nix;
     shellAbbrs = import ./abbrs.nix;
 
@@ -34,10 +28,10 @@
     plugins = map (name: {
       inherit name;
       src = inputs.nivSources."fish-${name}";
-    }) ["pure" "done" "fzf" "pisces" "z"];
+    }) [ "pure" "done" "fzf.fish" "z" ];
   };
-  home.sessionPath = ["~/.emacs.d/bin"];
-  home.sessionVariables = {EDITOR = "code -w";};
+  home.sessionPath = [ "~/.emacs.d/bin" ];
+  home.sessionVariables = { EDITOR = "ve"; };
   programs.zoxide = import ./zoxide.nix;
 
   home.file = {
