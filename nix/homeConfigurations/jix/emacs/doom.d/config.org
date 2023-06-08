@@ -494,4 +494,3 @@ Window navigation mapping:
   :slot 2   :vslot -1     :side 'bottom  :width 110 :height 0.4
   :select t :modeline nil :autosave nil  :ttl nil   :quit nil)
 #+end_src
-
