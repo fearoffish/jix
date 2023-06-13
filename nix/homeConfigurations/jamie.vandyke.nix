@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ config, lib, pkgs, ... }:
 # for configurable home-manager modules see:
 # https://github.com/nix-community/home-manager/blob/master/modules/modules.nix
 {
@@ -17,7 +12,8 @@
     };
   };
 
-  imports = [./jix/git ./jix/ssh ./jix/fish ./jix/gpg ./jix/emacs ./jix/iterm];
+  imports =
+    [ ./jix/git ./jix/ssh ./jix/fish ./jix/gpg ./jix/emacs ./jix/iterm ];
 
   config = {
     manual.html.enable = false;
@@ -58,7 +54,6 @@
       graphviz
       heroku
       imagemagick
-      jetbrains-mono
       jq # JSON parsing for the CLI
       lazygit # nice tui for git
       libnotify # for those sweet sweet notifications
@@ -67,6 +62,7 @@
       lzma
       multimarkdown
       neovim
+      (nerdfonts.override { fonts = [ "VictorMono" "JetBrainsMono" ]; })
       nixfmt
       pandoc
       pass # password manager
@@ -76,7 +72,7 @@
       # pre-commit # git hooks
       qemu # emulator
       re2c # regex compiler
-      (ripgrep.override {withPCRE2 = true;})
+      (ripgrep.override { withPCRE2 = true; })
       ripgrep-all
       rnix-lsp # nix language server
       rustc

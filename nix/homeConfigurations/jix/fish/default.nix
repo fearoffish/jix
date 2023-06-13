@@ -41,6 +41,8 @@
     EDITOR = "ve";
     DOOMDIR = "${config.xdg.configHome}/doom-config";
     DOOMLOCALDIR = "${config.xdg.configHome}/doom-local";
+    DOOMPROFILELOADPATH = "${config.xdg.configHome}/doom-local/profiles";
+    DOOMPROFILELOADFILE = "${config.xdg.configHome}/doom-local/profiles/load.el";
   };
 
   xdg = {
@@ -55,7 +57,10 @@
         onChange = "${pkgs.writeShellScript "doom-change" ''
           export DOOMDIR="${config.home.sessionVariables.DOOMDIR}"
           export DOOMLOCALDIR="${config.home.sessionVariables.DOOMLOCALDIR}"
-          if [ ! -d "$DOOMLOCALDIR" ]; then
+          export DOOMPROFILELOADPATH="${config.home.sessionVariables.DOOMPROFILELOADPATH}"
+          export DOOMPROFILELOADFILE="${config.home.sessionVariables.DOOMPROFILELOADFILE}"
+          mkdir -p $${DOOMPROFILELOADPATH} && chmod +x $${DOOMPROFILELOADPATH}
+          if [ ! -d "$${DOOMLOCALDIR}" ]; then
             ${config.xdg.configHome}/emacs/bin/doom install --force
           else
             ${config.xdg.configHome}/emacs/bin/doom sync -u

@@ -4,5 +4,5 @@
   enableZshIntegration = true;
   enableBashIntegration = true;
 
-  settings = import ./settings.nix;
+  # settings = import ./settings.nix;
 }

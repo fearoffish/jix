@@ -401,7 +401,7 @@ Fonts I like:
 
 #+caption: $DOOMDIR/config.el
 #+begin_src emacs-lisp
-(setq doom-font (font-spec :family "JetBrains Mono" :size 15 :weight 'light)
+(setq doom-font (font-spec :family "VictorMono Nerd Font" :size 16 :weight 'regular)
       doom-variable-pitch-font (font-spec :family "Iosevka Aile" :size 16))
 #+end_src
 
