@@ -6,7 +6,7 @@
 * My Literate Emacs Configuration
 
 ** About my config
-I have built this from a single source
+Here is my config. It's a mixture of things I've created, things I like and things other people have created. I'll try and keep a good list of sources in a list below for credit.
 
 ** Investigating issues
 If you, like me, try new things with your config until it breaks, is important that we have some tools to help us figure out what is going on. Regardless if you'll use this configuration /as is/, or start yours from scratch, and copy the tidbits that may interest you. Before you start know these things:
@@ -37,6 +37,8 @@ After starting Emacs with the =--debug-init= flag, you can check the call tree w
 
 *** Sources:
 - [[https://github.com/Townk/doom-emacs-private/blob/master/config.org][Thiago Alves Literate Config]]
+- https://tecosaur.github.io/emacs-config/config.html#interface
+- https://github.com/abougouffa/dotfiles
 
 *** Identity
 Who am I?
@@ -70,7 +72,7 @@ I love the style of this image so much, that it is, besides my dashboard image, 
 #+end_center
 
 *** Key modifiers
-]]Since I use a Mac as my primary computer, I need to adjust its control keys to match a good set of control keys on Emacs:
+Since I use a Mac as my primary computer, I need to adjust its control keys to match a good set of control keys on Emacs:
 
 #+caption: macOS key mappings
 #+name: tbl:macos-keys
@@ -425,6 +427,61 @@ When I'm searching with avy, I want to search all visible windows.
 #+caption: $DOOMDIR/config.el
 #+begin_src emacs-lisp
   (setq avy-all-windows t)
+#+end_src
+
+*** Window Behaviour
+
+When I split windows I want windows to redistribute from all.
+
+#+caption: $DOOMDIR/config.el
+#+begin_src emacs-lisp
+(setq-default window-combination-resize t)
+#+end_src
+
+Install the beacon and focus plugins. Beacon flashes when my cursor moves. Focus allows
+me to turn on focus mode, which greys out all but my current sentence/paragraph.
+
+#+caption: $DOOMDIR/packages.el
+#+begin_src emacs-lisp :tangle packages.el
+(package! beacon)
+(package! focus)
+#+end_src
+
+Enable beacon mode for all.
+
+#+caption: $DOOMDIR/config.el
+#+begin_src emacs-lisp
+(beacon-mode 1)
+#+end_src
+
+Always split to the right and below.
+
+#+caption: $DOOMDIR/config.el
+#+begin_src emacs-lisp
+(setq evil-vsplit-window-right t evil-split-window-below t)
+#+end_src
+
+When we split we should get a popup for the buffers to do it against.
+
+#+caption: $DOOMDIR/config.el
+#+begin_src emacs-lisp
+(defadvice! prompt-for-buffer (&rest _)
+  :after '(evil-window-split evil-window-vsplit) (consult-buffer))
+#+end_src
+
+** WhichKey
+
+Let's tweak WhichKey to be quicker, and to have unicode for some icons to be quicker:
+
+#+caption: $DOOMDIR/config.el
+#+begin_src emacs-lisp
+(setq which-key-idle-delay 0.5) ;; Default is 1.0 which-key-idle-secondary-delay 0.05) ;; Default is nil
+(setq which-key-allow-multiple-replacements t)
+
+(after! which-key
+  (pushnew! which-key-replacement-alist
+            '((""       . "\\`+?evil[-:]?\\(?:a-\\)?\\(.*\\)") . (nil . "🅔·\\1"))
+            '(("\\`g s" . "\\`evilem--?motion-\\(.*\\)")       . (nil . "Ⓔ·\\1"))))
 #+end_src
 
 ** LSP

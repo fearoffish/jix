@@ -50,7 +50,9 @@
   jinstall = "cd /a/jix && make install ; cd -";
   # gh = "op plugin run -- gh";
   aws = "op plugin run -- aws";
-  airoles = "'/Users/jamie.vandyke/Library/Application Support/aichat/roles.yaml'";
+  airoles =
+    "'/Users/jamie.vandyke/Library/Application Support/aichat/roles.yaml'";
   shell = "aichat -r shell";
   sshpw = "ssh -o PubkeyAuthentication=no -o PreferredAuthentications=password";
+  lg = "lazygit";
 }

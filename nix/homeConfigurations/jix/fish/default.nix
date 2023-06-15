@@ -1,18 +1,11 @@
-{
-  config,
-  lib,
-  pkgs,
-  inputs,
-  ...
-}: {
+{ config, lib, pkgs, inputs, ... }: {
   programs.direnv = import ./direnv.nix;
-  programs.starship = import ../starship;
   programs.fzf.enable = true;
   programs.fzf.enableFishIntegration = true;
   programs.fish = {
     enable = true;
 
-    functions = import ./functions.nix {inherit inputs lib;};
+    functions = import ./functions.nix { inherit inputs lib; };
     shellAliases = import ./aliases.nix;
     shellAbbrs = import ./abbrs.nix;
 
@@ -34,15 +27,16 @@
     plugins = map (name: {
       inherit name;
       src = inputs.nivSources."fish-${name}";
-    }) ["pure" "done" "fzf.fish" "z"];
+    }) [ "pure" "done" "fzf.fish" "z" ];
   };
-  home.sessionPath = [];
+  home.sessionPath = [ ];
   home.sessionVariables = {
     EDITOR = "ve";
     DOOMDIR = "${config.xdg.configHome}/doom-config";
     DOOMLOCALDIR = "${config.xdg.configHome}/doom-local";
     DOOMPROFILELOADPATH = "${config.xdg.configHome}/doom-local/profiles";
-    DOOMPROFILELOADFILE = "${config.xdg.configHome}/doom-local/profiles/load.el";
+    DOOMPROFILELOADFILE =
+      "${config.xdg.configHome}/doom-local/profiles/load.el";
   };
 
   xdg = {
@@ -59,8 +53,8 @@
           export DOOMLOCALDIR="${config.home.sessionVariables.DOOMLOCALDIR}"
           export DOOMPROFILELOADPATH="${config.home.sessionVariables.DOOMPROFILELOADPATH}"
           export DOOMPROFILELOADFILE="${config.home.sessionVariables.DOOMPROFILELOADFILE}"
-          mkdir -p $${DOOMPROFILELOADPATH} && chmod +x $${DOOMPROFILELOADPATH}
-          if [ ! -d "$${DOOMLOCALDIR}" ]; then
+          mkdir -p $''${DOOMPROFILELOADPATH} && chmod +x $''${DOOMPROFILELOADPATH}
+          if [ ! -d "$''${DOOMLOCALDIR}" ]; then
             ${config.xdg.configHome}/emacs/bin/doom install --force
           else
             ${config.xdg.configHome}/emacs/bin/doom sync -u
@@ -71,11 +65,18 @@
   };
 
   programs.zoxide = import ./zoxide.nix;
+  programs.starship = {
+    enable = true;
+    enableFishIntegration = true;
+    enableZshIntegration = true;
+    enableBashIntegration = true;
+  };
 
   home.file = {
     ".config/fish/completions/aws-vault.fish".source =
       ./completions/aws-vault.fish;
     ".config/fish/completions/gds.fish".source = ./completions/gds.fish;
+    ".config/starship.toml".source = ./starship/config/starship.toml;
   };
 
   fonts.fontconfig.enable = true;
