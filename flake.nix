@@ -9,15 +9,15 @@
     mk-darwin-system.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = {mk-darwin-system, ...} @ inputs: let
-    userName = "jamie.vandyke";
-    userHome = "/Users/jamie.vandyke";
-    hostName = "GDS10724";
+  outputs = { mk-darwin-system, ... }@inputs:
+    let
+      userName = "jamievandyke";
+      userHome = "/Users/jamievandyke";
+      hostName = "fearofair";
 
-    darwinFlake = mk-darwin-system.mkFlake {
-      inherit userName userHome hostName inputs;
-      flake = ./.;
-    };
-  in
-    darwinFlake;
+      darwinFlake = mk-darwin-system.mkFlake {
+        inherit userName userHome hostName inputs;
+        flake = ./.;
+      };
+    in darwinFlake;
 }
