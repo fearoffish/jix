@@ -37,6 +37,7 @@
     DOOMPROFILELOADPATH = "${config.xdg.configHome}/doom-local/profiles";
     DOOMPROFILELOADFILE =
       "${config.xdg.configHome}/doom-local/profiles/load.el";
+    GITHUB_API_TOKEN = "op://Shared/elh25me6dfg2fbku5ykvh6djny/tokens/gov.uk";
   };
 
   xdg = {

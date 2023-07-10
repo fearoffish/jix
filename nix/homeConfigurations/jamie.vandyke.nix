@@ -94,6 +94,11 @@
       zlib
       zoxide
 
+      # work stuff
+      cloudfoundry-cli
+      bosh-cli
+      credhub-cli
+
       # Install dmg applications versioned by niv.
       # See `nix develop -c niv show` on the root of your flake.
       #

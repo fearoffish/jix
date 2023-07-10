@@ -26,12 +26,13 @@
   grim = "git rebase -i remotes/origin/master";
   gpfh = "git push --force-with-lease origin HEAD";
   gfix = "git commit --all --fixup amend:HEAD";
-  gcm = "git commit --all --message";
+  gcm = "git commit --message";
   ga = "git commit --amend --reuse-message HEAD --all";
   gcam = "git commit --amend --all --message";
   gbDm = "git rm-merged";
   glo = "git log --graph --oneline";
   gss = "git status";
+  greset = "git reset --hard origin/main";
   # Magit
   ms = "mg SPC g g";
   # status
@@ -50,9 +51,6 @@
   jinstall = "cd /a/jix && make install ; cd -";
   # gh = "op plugin run -- gh";
   aws = "op plugin run -- aws";
-  airoles =
-    "'/Users/jamie.vandyke/Library/Application Support/aichat/roles.yaml'";
-  shell = "aichat -r shell";
   sshpw = "ssh -o PubkeyAuthentication=no -o PreferredAuthentications=password";
   lg = "lazygit";
 }
