@@ -21,10 +21,6 @@ bootstrap: ## Activate system on fresh MacOS.
 update: ## Update flake inputs.
 	nix flake update
 
-.PHONY: starship
-starship: ## Generate starship settings from a preset
-	starship preset pure-preset | ./nix/homeConfigurations/jix/fish/starship/scripts/convert_starship.rb
-
 .PHONY: install
 install: ## Activate system
 	nix run

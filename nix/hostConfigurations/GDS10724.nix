@@ -63,6 +63,13 @@
       "font-iosevka-aile"
       "font-iosevka-nerd-font"
       "font-fontawesome"
+      "caffeine"
+      "elgato-camera-hub"
+      "elgato-stream-deck"
+      "elgato-wave-link"
+      "font-fontawesome"
+      "font-iosevka-aile"
+      "font-iosevka-nerd-font"
       "font-jetbrains-mono"
       "font-material-design-icons-webfont"
       "gpg-suite"
@@ -78,14 +85,22 @@
       "sigmaos"
       "slack"
       "snapmaker-luban"
+      "keyboard-maestro"
+      "orbstack"
+      "raycast"
+      "setapp"
       "sublime-text"
       "visual-studio-code"
       "zoom"
     ];
-    brews = [ "asdf" ];
-    taps = [ "homebrew/cask-fonts" "alphagov/gds" ];
+    brews = [ "asdf" "grep" "pidof" "awscli" "sqlite" ];
+    taps = [ "homebrew/cask-fonts" "homebrew/cask-drivers" "alphagov/gds" ];
   };
 
-  # environment = {
-  # };
+  fonts = {
+    fontDir.enable = true;
+    fonts = [ pkgs.font-awesome ];
+  };
+
+  environment = { };
 }

@@ -1,12 +1,12 @@
 #!/nix/var/nix/profiles/system/sw/bin/bash
 
 # install homebrew if not available
-if ! command -v brew &> /dev/null; then
+if ! command -v brew &>/dev/null; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 # asdf plugins and versions
-if ! command -v go &> /dev/null; then
+if ! command -v ruby &>/dev/null; then
   asdf plugin add ruby
   asdf plugin add nodejs
   asdf plugin add golang
@@ -20,6 +20,3 @@ if ! command -v go &> /dev/null; then
   asdf global golang latest
   asdf global python latest
 fi
-
-# install git mob
-npm install --global git-mob

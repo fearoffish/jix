@@ -1,18 +1,11 @@
-{
-  config,
-  lib,
-  pkgs,
-  inputs,
-  ...
-}: {
+{ config, lib, pkgs, inputs, ... }: {
   programs.direnv = import ./direnv.nix;
-  programs.starship = import ./starship;
   programs.fzf.enable = true;
   programs.fzf.enableFishIntegration = true;
   programs.fish = {
     enable = true;
 
-    functions = import ./functions.nix {inherit inputs lib;};
+    functions = import ./functions.nix { inherit inputs lib; };
     shellAliases = import ./aliases.nix;
     shellAbbrs = import ./abbrs.nix;
 
@@ -24,23 +17,67 @@
       # asdf
       source /opt/homebrew/opt/asdf/libexec/asdf.fish
 
-      fish_add_path ~/.local/bin ~/.emacs.d/bin/ /Applications/Docker.app/Contents/Resources/bin/
+      fish_add_path ~/.local/bin ~/.config/emacs/bin /Applications/Docker.app/Contents/Resources/bin/ /opt/homebrew/opt/grep/libexec/gnubin
 
       # direnv
       # direnv hook fish | source
+      set -xg GOBIN ~/.local/bin
     '';
 
     plugins = map (name: {
       inherit name;
       src = inputs.nivSources."fish-${name}";
-    }) ["pure" "done" "fzf.fish" "pisces" "z"];
+    }) [ "pure" "done" "fzf.fish" "z" ];
   };
-  home.sessionPath = ["~/.emacs.d/bin"];
-  home.sessionVariables = {EDITOR = "code -w";};
+  home.sessionPath = [ ];
+  home.sessionVariables = {
+    EDITOR = "ve";
+    DOOMDIR = "${config.xdg.configHome}/doom-config";
+    DOOMLOCALDIR = "${config.xdg.configHome}/doom-local";
+    DOOMPROFILELOADPATH = "${config.xdg.configHome}/doom-local/profiles";
+    DOOMPROFILELOADFILE =
+      "${config.xdg.configHome}/doom-local/profiles/load.el";
+    GITHUB_API_TOKEN = "op://Shared/elh25me6dfg2fbku5ykvh6djny/tokens/gov.uk";
+  };
+
+  xdg = {
+    enable = true;
+    configFile = {
+      "emacs" = {
+        source = builtins.fetchGit {
+          url = "https://github.com/doomemacs/doomemacs";
+          ref = "master";
+          rev = "07fca786154551f90f36535bfb21f8ca4abd5027";
+        };
+        onChange = "${pkgs.writeShellScript "doom-change" ''
+          export DOOMDIR="${config.home.sessionVariables.DOOMDIR}"
+          export DOOMLOCALDIR="${config.home.sessionVariables.DOOMLOCALDIR}"
+          export DOOMPROFILELOADPATH="${config.home.sessionVariables.DOOMPROFILELOADPATH}"
+          export DOOMPROFILELOADFILE="${config.home.sessionVariables.DOOMPROFILELOADFILE}"
+          mkdir -p $''${DOOMPROFILELOADPATH} && chmod +x $''${DOOMPROFILELOADPATH}
+          if [ ! -d "$''${DOOMLOCALDIR}" ]; then
+            ${config.xdg.configHome}/emacs/bin/doom install --force
+          else
+            ${config.xdg.configHome}/emacs/bin/doom sync -u
+          fi
+        ''}";
+      };
+    };
+  };
+
   programs.zoxide = import ./zoxide.nix;
+  programs.starship = {
+    enable = true;
+    enableFishIntegration = true;
+    enableZshIntegration = true;
+    enableBashIntegration = true;
+  };
 
   home.file = {
-    # ".local/share/fish/fish_history".source = "${config.dots}/fish/fish_history";
+    ".config/fish/completions/aws-vault.fish".source =
+      ./completions/aws-vault.fish;
+    ".config/fish/completions/gds.fish".source = ./completions/gds.fish;
+    ".config/starship.toml".source = ./starship/config/starship.toml;
   };
 
   fonts.fontconfig.enable = true;

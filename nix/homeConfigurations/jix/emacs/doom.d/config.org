@@ -6,7 +6,7 @@
 * My Literate Emacs Configuration
 
 ** About my config
-I have built this from a single source
+Here is my config. It's a mixture of things I've created, things I like and things other people have created. I'll try and keep a good list of sources in a list below for credit.
 
 ** Investigating issues
 If you, like me, try new things with your config until it breaks, is important that we have some tools to help us figure out what is going on. Regardless if you'll use this configuration /as is/, or start yours from scratch, and copy the tidbits that may interest you. Before you start know these things:
@@ -37,6 +37,8 @@ After starting Emacs with the =--debug-init= flag, you can check the call tree w
 
 *** Sources:
 - [[https://github.com/Townk/doom-emacs-private/blob/master/config.org][Thiago Alves Literate Config]]
+- https://tecosaur.github.io/emacs-config/config.html#interface
+- https://github.com/abougouffa/dotfiles
 
 *** Identity
 Who am I?
@@ -70,7 +72,7 @@ I love the style of this image so much, that it is, besides my dashboard image, 
 #+end_center
 
 *** Key modifiers
-]]Since I use a Mac as my primary computer, I need to adjust its control keys to match a good set of control keys on Emacs:
+Since I use a Mac as my primary computer, I need to adjust its control keys to match a good set of control keys on Emacs:
 
 #+caption: macOS key mappings
 #+name: tbl:macos-keys
@@ -124,20 +126,31 @@ To prevent Emacs from wrapping your text as it goes over the size of the screen,
 
 ** Inline completion
 
-I add the TabNine autocompletion framework too, for some private AI goodness.
+Add github co-pilot instead of TabNine (previous)
 
 #+caption: $DOOMDIR/packages.el
 #+begin_src emacs-lisp :tangle packages.el
-(package! company-tabnine)
+(package! copilot
+  :recipe (:host github :repo "zerolfx/copilot.el" :files ("*.el" "dist")))
 #+end_src
+
+Accept completion from copilot and fallback to company, first unbinding keys that clash:
+
+#+caption: $DOOMDIR/config.el
+#+begin_src emacs-lisp :tangle no
+#+end_src
+
+Then bind the keys to copilot:
 
 #+caption: $DOOMDIR/config.el
 #+begin_src emacs-lisp
-(after! company
-  (setq +lsp-company-backends '(company-tabnine :separate company-capf company-yasnippet))
-  (setq company-show-numbers t)
-  (setq company-idle-delay 0)
-)
+(use-package! copilot
+  :hook (prog-mode . copilot-mode)
+  :bind (("C-TAB" . 'copilot-accept-completion-by-word)
+         ("C-<tab>" . 'copilot-accept-completion-by-word)
+         :map copilot-completion-map
+         ("<tab>" . 'copilot-accept-completion)
+         ("TAB" . 'copilot-accept-completion)))
 #+end_src
 
 ** Spelling
@@ -167,6 +180,9 @@ To achieve this, I need a function that turns the /absolute/ line number when li
   (if display-line-numbers
       (setq display-line-numbers t)))
 #+end_src
+
+#+RESULTS:
+: my-line-number-absolute-h
 
 And another function to put the line numbers on /relative mode/ (but again, only if line numbers are visible):
 
@@ -319,6 +335,28 @@ Some other modes don't play nice with this particular key bindings I choose, and
       :gn "C-j" #'evil-window-down)
 #+end_src
 
+Thanks to a post by Dario over at https://codingstruggles.com/emacs/resizing-windows-doom-emacs.html I can also resize easily as he says "Now we can just press SPC w SPC and then hold one of h, j, k or l to resize the current window."
+
+#+caption: $DOOMDIR/config.el
+#+begin_src emacs-lisp
+(defhydra doom-window-resize-hydra (:hint nil)
+  "
+             _k_ increase height
+_h_ decrease width    _l_ increase width
+             _j_ decrease height
+"
+  ("h" evil-window-decrease-width)
+  ("j" evil-window-increase-height)
+  ("k" evil-window-decrease-height)
+  ("l" evil-window-increase-width)
+
+  ("q" nil))
+
+  (map!
+    (:prefix "w"
+      :desc "Hydra resize" :n "SPC" #'doom-window-resize-hydra/body))
+#+end_src
+
 *** Personal shortcuts
 Key bindings in this section are purely personal choice. Feel free to give them a try if you want, but if you're used to Doom Emacs already, my suggestion is to skip this section.
 
@@ -340,13 +378,12 @@ The first keymap group I like to add custom shortcuts is the multiple cursors. W
 #+end_src
 
 *** Theme
-I decided to give /Doom-Palenight/ a try, and so far I'm enjoying. I will admit that the purplish feeling of the palette is not my style, but overall, I'm not finding a bed choice.
-
-So, to make /Doom-Palenight/ the default theme, set the variable ~doom-theme~ to the symbol ='doom-palenight= to let Doom know what is the theme it should load:
+Trying out monokai pro
 
 #+caption: $DOOMDIR/config.el
 #+begin_src emacs-lisp
-(setq doom-theme 'doom-palenight)
+;; (setq doom-theme 'doom-palenight)
+(setq doom-theme 'doom-monokai-pro)
 #+end_src
 
 And because I like visual cues on my editor, I will turn on the ability to display *bold* and /italic/ faces for the theme:
@@ -366,7 +403,7 @@ Fonts I like:
 
 #+caption: $DOOMDIR/config.el
 #+begin_src emacs-lisp
-(setq doom-font (font-spec :family "JetBrains Mono" :size 15 :weight 'light)
+(setq doom-font (font-spec :family "VictorMono Nerd Font" :size 16 :weight 'regular)
       doom-variable-pitch-font (font-spec :family "Iosevka Aile" :size 16))
 #+end_src
 
@@ -380,6 +417,71 @@ After searching, I'd like to disable the highlight of the words, like =set :noh=
       :desc "Toggle search highlight"
       "t h"
       #'evil-ex-nohighlight)
+#+end_src
+
+
+*** Search All Windows
+
+When I'm searching with avy, I want to search all visible windows.
+
+#+caption: $DOOMDIR/config.el
+#+begin_src emacs-lisp
+  (setq avy-all-windows t)
+#+end_src
+
+*** Window Behaviour
+
+When I split windows I want windows to redistribute from all.
+
+#+caption: $DOOMDIR/config.el
+#+begin_src emacs-lisp
+(setq-default window-combination-resize t)
+#+end_src
+
+Install the beacon and focus plugins. Beacon flashes when my cursor moves. Focus allows
+me to turn on focus mode, which greys out all but my current sentence/paragraph.
+
+#+caption: $DOOMDIR/packages.el
+#+begin_src emacs-lisp :tangle packages.el
+(package! beacon)
+(package! focus)
+#+end_src
+
+Enable beacon mode for all.
+
+#+caption: $DOOMDIR/config.el
+#+begin_src emacs-lisp
+(beacon-mode 1)
+#+end_src
+
+Always split to the right and below.
+
+#+caption: $DOOMDIR/config.el
+#+begin_src emacs-lisp
+(setq evil-vsplit-window-right t evil-split-window-below t)
+#+end_src
+
+When we split we should get a popup for the buffers to do it against.
+
+#+caption: $DOOMDIR/config.el
+#+begin_src emacs-lisp
+(defadvice! prompt-for-buffer (&rest _)
+  :after '(evil-window-split evil-window-vsplit) (consult-buffer))
+#+end_src
+
+** WhichKey
+
+Let's tweak WhichKey to be quicker, and to have unicode for some icons to be quicker:
+
+#+caption: $DOOMDIR/config.el
+#+begin_src emacs-lisp
+(setq which-key-idle-delay 0.5) ;; Default is 1.0 which-key-idle-secondary-delay 0.05) ;; Default is nil
+(setq which-key-allow-multiple-replacements t)
+
+(after! which-key
+  (pushnew! which-key-replacement-alist
+            '((""       . "\\`+?evil[-:]?\\(?:a-\\)?\\(.*\\)") . (nil . "🅔·\\1"))
+            '(("\\`g s" . "\\`evilem--?motion-\\(.*\\)")       . (nil . "Ⓔ·\\1"))))
 #+end_src
 
 ** LSP
@@ -429,6 +531,8 @@ Some aliases that I'm used to when working on the terminal:
    "vim"   "find-file-other-window $1"))
 #+end_src
 
+#+RESULTS:
+
 Window navigation mapping:
 
 #+caption: $DOOMDIR/config.el
@@ -447,4 +551,3 @@ Window navigation mapping:
   :slot 2   :vslot -1     :side 'bottom  :width 110 :height 0.4
   :select t :modeline nil :autosave nil  :ttl nil   :quit nil)
 #+end_src
-

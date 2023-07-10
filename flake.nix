@@ -5,18 +5,19 @@
 
     # change main to a tag o git revision
     mk-darwin-system.url = "github:fearoffish/mk-darwin-system/main";
-    # mk-darwin-system.url = "path:/Users/jamievandyke/a/mk-darwin-system";
+    # mk-darwin-system.url = "path:/Users/jamie.vandyke/a/mk-darwin-system";
     mk-darwin-system.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { mk-darwin-system, ... }@inputs:
-    let
-      userName = "jamievandyke";
-      hostName = "fearofair";
+  outputs = {mk-darwin-system, ...} @ inputs: let
+    userName = "jamie.vandyke";
+    userHome = "/Users/jamie.vandyke";
+    hostName = "GDS10724";
 
-      darwinFlake = mk-darwin-system.mkFlake {
-        inherit userName hostName inputs;
-        flake = ./.;
-      };
-    in darwinFlake;
+    darwinFlake = mk-darwin-system.mkFlake {
+      inherit userName userHome hostName inputs;
+      flake = ./.;
+    };
+  in
+    darwinFlake;
 }

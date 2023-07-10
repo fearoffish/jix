@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ config, lib, pkgs, ... }:
 # for configurable home-manager modules see:
 # https://github.com/nix-community/home-manager/blob/master/modules/modules.nix
 {
@@ -17,7 +12,8 @@
     };
   };
 
-  imports = [./jix/git ./jix/ssh ./jix/zsh ./jix/gpg ./jix/emacs ./jix/iterm];
+  imports =
+    [ ./jix/git ./jix/ssh ./jix/fish ./jix/gpg ./jix/emacs ./jix/iterm ];
 
   config = {
     manual.html.enable = false;
@@ -40,6 +36,8 @@
       curl # An old classic
       deadnix # scan for unused nix code
       difftastic
+      editorconfig-core-c
+      emacs-all-the-icons-fonts
       exa # ls replacement written in Rust
       fd # find replacement written in Rust
       ffmpeg
@@ -48,15 +46,14 @@
       gcc
       gh # github cli
       git # git maybe?
-      git-branchless # git undo and more
-      git-extras # useful git extra stuff
       git-lfs
       gitAndTools.delta
       gitui
       gmp
+      gnutls
       graphviz
       heroku
-      jetbrains-mono
+      imagemagick
       jq # JSON parsing for the CLI
       lazygit # nice tui for git
       libnotify # for those sweet sweet notifications
@@ -65,21 +62,24 @@
       lzma
       multimarkdown
       neovim
+      (nerdfonts.override { fonts = [ "VictorMono" "JetBrainsMono" ]; })
       nixfmt
       pandoc
       pass # password manager
       pinentry_mac # Necessary for GPG
       pkg-config
       pngpaste
+      # pre-commit # git hooks
       qemu # emulator
       re2c # regex compiler
-      ripgrep # grep replacement written in Rust
+      (ripgrep.override { withPCRE2 = true; })
       ripgrep-all
       rnix-lsp # nix language server
       rustc
       s3cmd # s3 cli
       sd # Fancy sed replacement
       shellcheck # bash linter
+      shfmt
       skim # High-powered fuzzy finder written in Rust
       sqlite # sqlite cli
       sumneko-lua-language-server # for syntax in neovim
@@ -93,6 +93,11 @@
       zellij # a new tmux idea
       zlib
       zoxide
+
+      # work stuff
+      cloudfoundry-cli
+      bosh-cli
+      credhub-cli
 
       # Install dmg applications versioned by niv.
       # See `nix develop -c niv show` on the root of your flake.

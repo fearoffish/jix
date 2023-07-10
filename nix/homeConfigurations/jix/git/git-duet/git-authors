@@ -1,0 +1,28 @@
+{
+  "coauthors": {
+    "jvd": {
+      "name": "Jamie van Dyke",
+      "email": "jamie.vandyke@digital.cabinet-office.gov.uk"
+    },
+    "px": {
+      "name": "Panos Xynos",
+      "email": "panos.xynos@digital.cabinet-office.gov.uk"
+    },
+    "bc": {
+      "name": "Ben Corlett",
+      "email": "ben.corlett@digital.cabinet-office.gov.uk"
+    },
+    "ms": {
+      "name": "Malcolm Sanders",
+      "email": "malcolm.sanders@digital.cabinet-office.gov.uk"
+    },
+    "rs": {
+      "name": "Robert Scott",
+      "email": "robert.scott@digital.cabinet-office.gov.uk"
+    },
+    "jj": {
+      "name": "Jack Joy",
+      "email": "jack.joy@digital.cabinet-office.gov.uk"
+    }
+  }
+}
