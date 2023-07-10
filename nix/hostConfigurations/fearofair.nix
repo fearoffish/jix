@@ -1,16 +1,11 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ config, lib, pkgs, ... }:
 # for configurable nixos modules see (note that many of them might be linux-only):
 # https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/module-list.nix
 #
 # for configurable nix-darwin modules see
 # https://github.com/LnL7/nix-darwin/blob/master/modules/module-list.nix
 {
-  environment.systemPackages = with pkgs; [nixVersions.stable];
+  environment.systemPackages = with pkgs; [ nixVersions.stable ];
   documentation.enable = false;
 
   # nixpkgs.overlays = [
@@ -19,7 +14,7 @@
 
   system = {
     defaults = {
-      dock = {autohide = true;};
+      dock = { autohide = true; };
 
       trackpad = {
         Clicking = true;
@@ -62,7 +57,6 @@
     casks = [
       "1password"
       "1password-cli"
-      "brave-browser"
       "caffeine"
       "docker"
       "font-iosevka-aile"
@@ -76,19 +70,17 @@
       "kaleidoscope"
       "keybase"
       "keyboard-maestro"
-      "linearmouse"
       "lunar"
       "raycast"
       "setapp"
-      "sigmaos"
       "slack"
       "snapmaker-luban"
       "sublime-text"
       "visual-studio-code"
       "zoom"
     ];
-    brews = ["asdf"];
-    taps = ["homebrew/cask-fonts" "alphagov/gds"];
+    brews = [ "asdf" ];
+    taps = [ "homebrew/cask-fonts" "alphagov/gds" ];
   };
 
   # environment = {
