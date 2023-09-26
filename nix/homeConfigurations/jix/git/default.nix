@@ -1,20 +1,6 @@
 { config, lib, pkgs, inputs, ... }: {
   # programs.git = {
-  #   enable = true;
-  #   userName = "Jamie van Dyke";
-  #   userEmail = "me@fearof.fish";
-  #   signing.key = "850BCA9364ED67DA";
-  #   signing.signByDefault = true;
 
-  #   delta = {
-  #     enable = true;
-  #     options = {
-  #       navigate = true;
-  #       line-numbers = true;
-  #       side-by-side = false;
-  #       syntax-theme = "GitHub";
-  #     };
-  #   };
   #   ignores = [
   #     ".DS_Store"
   #     "*.swp"
@@ -97,5 +83,6 @@
   home.file.".local/bin/wt".source = ./plugins/wt;
   home.file."a/gov.uk/.gitconfig".source = ./configs/gov.uk;
   home.file.".git-coauthors".source = ./git-duet/git-authors;
+  home.file.".gitignore".source = ./configs/gitignore;
   # home.file.".config/git/config".source = ./configs/global;
 }
