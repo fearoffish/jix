@@ -44,3 +44,8 @@ style = "yellow"
 [python]
 format = "[$virtualenv]($style) "
 style = "bright-black"
+
+[custom.aws_subshell]
+command = 'echo "[aws_subshell]"'
+when = ''' test -n "$AWS_SESSION_TOKEN"'''
+format = '[$output]($style)'

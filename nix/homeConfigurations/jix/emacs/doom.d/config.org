@@ -71,6 +71,26 @@ I love the style of this image so much, that it is, besides my dashboard image, 
 [[./assets/doom.png]]
 #+end_center
 
+*** Remove quit confirmation
+
+If I want to quit, let me.
+
+#+caption: $DOOMDIR/config.el
+#+begin_src emacs-lisp
+(setq confirm-kill-emacs nil)
+#+end_src
+
+*** Initial Window size
+
+#+caption: $DOOMDIR/config.el
+#+begin_src emacs-lisp
+(setq default-frame-alist '(
+  (left . 0)
+  (width . 0)
+  (fullscreen . maximized)))
+#+end_src
+
+
 *** Key modifiers
 Since I use a Mac as my primary computer, I need to adjust its control keys to match a good set of control keys on Emacs:
 
@@ -134,23 +154,19 @@ Add github co-pilot instead of TabNine (previous)
   :recipe (:host github :repo "zerolfx/copilot.el" :files ("*.el" "dist")))
 #+end_src
 
-Accept completion from copilot and fallback to company, first unbinding keys that clash:
-
-#+caption: $DOOMDIR/config.el
-#+begin_src emacs-lisp :tangle no
-#+end_src
-
-Then bind the keys to copilot:
+Accept completion from copilot and fallback to company then bind the keys to copilot:
 
 #+caption: $DOOMDIR/config.el
 #+begin_src emacs-lisp
 (use-package! copilot
   :hook (prog-mode . copilot-mode)
-  :bind (("C-TAB" . 'copilot-accept-completion-by-word)
-         ("C-<tab>" . 'copilot-accept-completion-by-word)
-         :map copilot-completion-map
-         ("<tab>" . 'copilot-accept-completion)
-         ("TAB" . 'copilot-accept-completion)))
+  :bind (:map copilot-completion-map
+              ("<tab>" . 'copilot-accept-completion)
+              ("TAB" . 'copilot-accept-completion)
+              ("C-TAB" . 'copilot-accept-completion-by-word)
+              ("C-<tab>" . 'copilot-accept-completion-by-word)))
+
+(setq-default copilot-enable-predicates nil)
 #+end_src
 
 ** Spelling
@@ -341,9 +357,10 @@ Thanks to a post by Dario over at https://codingstruggles.com/emacs/resizing-win
 #+begin_src emacs-lisp
 (defhydra doom-window-resize-hydra (:hint nil)
   "
-             _k_ increase height
-_h_ decrease width    _l_ increase width
-             _j_ decrease height
+    _k_ increase height
+    _h_ decrease width
+    _l_ increase width
+    _j_ decrease height
 "
   ("h" evil-window-decrease-width)
   ("j" evil-window-increase-height)
@@ -382,8 +399,7 @@ Trying out monokai pro
 
 #+caption: $DOOMDIR/config.el
 #+begin_src emacs-lisp
-;; (setq doom-theme 'doom-palenight)
-(setq doom-theme 'doom-monokai-pro)
+(setq doom-theme 'doom-vibrant)
 #+end_src
 
 And because I like visual cues on my editor, I will turn on the ability to display *bold* and /italic/ faces for the theme:
@@ -404,7 +420,8 @@ Fonts I like:
 #+caption: $DOOMDIR/config.el
 #+begin_src emacs-lisp
 (setq doom-font (font-spec :family "VictorMono Nerd Font" :size 16 :weight 'regular)
-      doom-variable-pitch-font (font-spec :family "Iosevka Aile" :size 16))
+      doom-variable-pitch-font (font-spec :family "VictorMono Nerd Font" :size 16 :weight 'regular)
+      doom-unicode-font (font-spec :family "VictorMono Nerd Font" :size 16 :weight 'regular))
 #+end_src
 
 *** Search Highlights
@@ -419,6 +436,18 @@ After searching, I'd like to disable the highlight of the words, like =set :noh=
       #'evil-ex-nohighlight)
 #+end_src
 
+*** Whitespace Highlights
+
+I sometimes want to see hidden characters and always want to see trailing whitespace.
+
+#+caption: $DOOMDIR/config.el
+#+begin_src emacs-lisp
+  (setq-default show-trailing-whitespace t)
+  (map! :leader
+      :desc "Toggle whitespace mode"
+      "t W"
+      #'whitespace-mode)
+#+end_src
 
 *** Search All Windows
 

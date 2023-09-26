@@ -72,6 +72,21 @@
           IdentityFile = "~/.ssh/id_ed25519.pub";
         };
       };
+      "h" = {
+        user = "root";
+        hostname = "116.202.175.120";
+        port = 5656;
+      };
+      "mail" = {
+        user = "root";
+        hostname = "mail.fearof.fish";
+        port = 5656;
+      };
+      "mast" = {
+        user = "root";
+        hostname = "mastadon.fearof.fish";
+        port = 5656;
+      };
     };
   };
 }

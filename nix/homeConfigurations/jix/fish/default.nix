@@ -15,7 +15,7 @@
       eval "$(/opt/homebrew/bin/brew shellenv)"
 
       # asdf
-      source /opt/homebrew/opt/asdf/libexec/asdf.fish
+      source (dirname (dirname (readlink -f (which asdf))))/share/asdf-vm/asdf.fish
 
       fish_add_path ~/.local/bin ~/.config/emacs/bin /Applications/Docker.app/Contents/Resources/bin/ /opt/homebrew/opt/grep/libexec/gnubin
 
@@ -31,7 +31,7 @@
   };
   home.sessionPath = [ ];
   home.sessionVariables = {
-    EDITOR = "ve";
+    EDITOR = "zed -w";
     DOOMDIR = "${config.xdg.configHome}/doom-config";
     DOOMLOCALDIR = "${config.xdg.configHome}/doom-local";
     DOOMPROFILELOADPATH = "${config.xdg.configHome}/doom-local/profiles";
@@ -71,13 +71,17 @@
     enableFishIntegration = true;
     enableZshIntegration = true;
     enableBashIntegration = true;
+
+    settings = {
+      add_newline = false;
+      command_timeout = 1000;
+    };
   };
 
   home.file = {
     ".config/fish/completions/aws-vault.fish".source =
       ./completions/aws-vault.fish;
     ".config/fish/completions/gds.fish".source = ./completions/gds.fish;
-    ".config/starship.toml".source = ./starship/config/starship.toml;
   };
 
   fonts.fontconfig.enable = true;

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: bash mode
+# uuid: bash
+# key: bashmode
+# --
+# -*- mode: sh; sh-shell: bash; -*-

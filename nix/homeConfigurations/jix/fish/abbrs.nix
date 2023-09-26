@@ -4,6 +4,7 @@
   cat = "bat";
   grep = "rg";
   find = "fd";
+  watch = "viddy";
   nr = "nix run";
   nf = "fd --glob '*.nix' -X nixfmt {}";
   gr = "git recents";
@@ -48,9 +49,19 @@
   mz = "mg SPC g / Z l";
   # list stash
 
-  jinstall = "cd /a/jix && make install ; cd -";
+  jinstall = "cd /a/personal/jix && make install ; cd -";
   # gh = "op plugin run -- gh";
-  aws = "op plugin run -- aws";
+  gaws = "op plugin run -- aws";
   sshpw = "ssh -o PubkeyAuthentication=no -o PreferredAuthentications=password";
   lg = "lazygit";
+
+  # work stuff
+  cfli = "cf login -a api.cloud.service.gov.uk --sso";
+  cfll = "cf login -a api.london.cloud.service.gov.uk --sso";
+  cfls = "cf login -a api.london.staging.cloudpipeline.digital --sso";
+  cfld1 = "cf login -a api.dev01.dev.cloudpipeline.digital --sso";
+  cfld2 = "cf login -a api.dev02.dev.cloudpipeline.digital --sso";
+  cfld3 = "cf login -a api.dev03.dev.cloudpipeline.digital --sso";
+  cfld4 = "cf login -a api.dev04.dev.cloudpipeline.digital --sso";
+  cfld5 = "cf login -a api.dev05.dev.cloudpipeline.digital --sso";
 }

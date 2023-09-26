@@ -6,4 +6,5 @@
   ".." = "cd ..";
   "..." = "cd ../..";
   be = "bundle exec";
+  subl = "\"/Applications/Sublime\ Text\ \(4143\).app/Contents/SharedSupport/bin/subl\"";
 }

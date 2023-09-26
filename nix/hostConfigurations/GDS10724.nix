@@ -77,13 +77,11 @@
       "orbstack"
       "raycast"
       "setapp"
-      "setapp"
-      "slack"
       "sublime-text"
-      "visual-studio-code"
+      "zed"
       "zoom"
     ];
-    brews = [ "asdf" "grep" "pidof" "awscli" "sqlite" ];
+    brews = [ "grep" "pidof" "awscli" "sqlite" ];
     taps = [ "homebrew/cask-fonts" "homebrew/cask-drivers" "alphagov/gds" ];
   };
 
