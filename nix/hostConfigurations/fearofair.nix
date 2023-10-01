@@ -59,30 +59,35 @@
       "1password-cli"
       "caffeine"
       "docker"
+      "elgato-stream-deck"
+      "font-fontawesome"
+      "font-fontawesome"
+      "font-iosevka-aile"
       "font-iosevka-aile"
       "font-iosevka-nerd-font"
-      "font-fontawesome"
+      "font-iosevka-nerd-font"
       "font-jetbrains-mono"
       "font-material-design-icons-webfont"
       "gpg-suite"
       "istat-menus"
       "iterm2"
-      "kaleidoscope"
-      "keybase"
       "keyboard-maestro"
       "lunar"
+      "orbstack"
       "raycast"
       "setapp"
-      "slack"
-      "snapmaker-luban"
       "sublime-text"
-      "visual-studio-code"
+      "zed"
       "zoom"
     ];
-    brews = [ "asdf" ];
-    taps = [ "homebrew/cask-fonts" "alphagov/gds" ];
+    brews = [ "grep" "pidof" "awscli" "sqlite" ];
+    taps = [ "homebrew/cask-fonts" "homebrew/cask-drivers" ];
   };
 
-  # environment = {
-  # };
+  fonts = {
+    fontDir.enable = true;
+    fonts = [ pkgs.font-awesome ];
+  };
+
+  environment = { };
 }

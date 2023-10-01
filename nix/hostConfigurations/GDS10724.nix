@@ -58,7 +58,6 @@
       "1password"
       "1password-cli"
       "caffeine"
-      "caffeine"
       "docker"
       "elgato-stream-deck"
       "font-fontawesome"
