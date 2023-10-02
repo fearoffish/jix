@@ -19,6 +19,8 @@
 
 [core]
 	pager = "/nix/store/3xqv3bw4j16xzi4zbfd81y3qxdqm6p9i-delta-0.15.1/bin/delta"
+  editor = zed -w
+  excludesfile = ~/.gitignore
 
 [delta]
 	line-numbers = true

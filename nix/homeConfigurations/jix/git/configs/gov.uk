@@ -7,3 +7,7 @@
 
 [commit]
   sign = true
+
+[core]
+  editor = zed -w
+  excludesfile = ~/.gitignore
