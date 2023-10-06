@@ -13,7 +13,7 @@
   };
 
   imports =
-    [ ./jix/git ./jix/ssh ./jix/fish ./jix/gpg ./jix/emacs ./jix/iterm ];
+    [ ./jix/git ./jix/ssh ./jix/fish ./jix/gpg ./jix/emacs ./jix/iterm ./jix/kitty ];
 
   config = {
     manual.html.enable = false;

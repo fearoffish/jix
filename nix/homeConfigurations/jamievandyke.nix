@@ -13,7 +13,7 @@
   };
 
   imports =
-    [ ./jix/git ./jix/ssh ./jix/fish ./jix/gpg ./jix/emacs ./jix/iterm ];
+    [ ./jix/git ./jix/ssh ./jix/fish ./jix/gpg ./jix/emacs ./jix/iterm ./jix/kitty ];
 
   config = {
     manual.html.enable = false;
@@ -25,6 +25,7 @@
       # niv # Nix dependency management
       alejandra
       any-nix-shell
+      asdf-vm
       aws-vault
       autoconf # Broadly used tool, no clue what it does
       bash # /bin/bash
@@ -32,6 +33,7 @@
       bottom # istat menus on the cli
       btop # another istat top like monitor
       cargo
+      certstrap
       coreutils
       curl # An old classic
       deadnix # scan for unused nix code
@@ -81,6 +83,7 @@
       shellcheck # bash linter
       shfmt
       skim # High-powered fuzzy finder written in Rust
+      spruce
       sqlite # sqlite cli
       sumneko-lua-language-server # for syntax in neovim
       tealdeer # tldr for various shell tools
@@ -89,15 +92,11 @@
       viddy # a modern watch
       wget
       wordnet
+      yamllint
       yq # yaml processor like jq
       zellij # a new tmux idea
       zlib
       zoxide
-
-      # work stuff
-      cloudfoundry-cli
-      bosh-cli
-      credhub-cli
 
       # Install dmg applications versioned by niv.
       # See `nix develop -c niv show` on the root of your flake.
