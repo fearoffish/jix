@@ -11,9 +11,9 @@
 
   outputs = { mk-darwin-system, ... }@inputs:
     let
-      userName = "jamie.vandyke";
-      userHome = "/Users/jamie.vandyke";
-      hostName = "GDS10724";
+      userName = "jamievandyke";
+      userHome = "/Users/jamievandyke";
+      hostName = "fearofair";
 
       darwinFlake = mk-darwin-system.mkFlake {
         inherit userName userHome hostName inputs;

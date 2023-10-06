@@ -58,7 +58,6 @@
       "1password"
       "1password-cli"
       "caffeine"
-      "docker"
       "elgato-stream-deck"
       "font-fontawesome"
       "font-fontawesome"
@@ -68,17 +67,16 @@
       "font-iosevka-nerd-font"
       "font-jetbrains-mono"
       "font-material-design-icons-webfont"
-      "gpg-suite"
       "istat-menus"
       "iterm2"
       "keyboard-maestro"
+      "kitty"
       "lunar"
       "orbstack"
       "raycast"
       "setapp"
       "sublime-text"
       "zed"
-      "zoom"
     ];
     brews = [ "grep" "pidof" "awscli" "sqlite" ];
     taps = [ "homebrew/cask-fonts" "homebrew/cask-drivers" ];
