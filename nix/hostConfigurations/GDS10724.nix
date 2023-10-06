@@ -72,6 +72,7 @@
       "istat-menus"
       "iterm2"
       "keyboard-maestro"
+      "kitty"
       "lunar"
       "orbstack"
       "raycast"
