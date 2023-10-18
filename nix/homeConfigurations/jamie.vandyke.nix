@@ -23,54 +23,55 @@
       # direnv # Per-directory environment variables (required by lorri)
       # ncdu # a great large file and folder finder with a tui to help cleanup stuffs
       # niv # Nix dependency management
-      alejandra
-      any-nix-shell
-      asdf-vm
+      alejandra # a nice tui for managing nix flakes
+      any-nix-shell # run nix-shell on any file
+      asdf-vm # version manager
       aws-vault
       autoconf # Broadly used tool, no clue what it does
       bash # /bin/bash
-      bat
+      bat # cat with syntax highlighting
       bottom # istat menus on the cli
       btop # another istat top like monitor
-      cargo
-      certstrap
-      coreutils
+      cargo # Rust package manager
+      certstrap # certificate management
+      coreutils # GNU core utilities
       curl # An old classic
       deadnix # scan for unused nix code
-      difftastic
+      difftastic # diff tool
       editorconfig-core-c
       emacs-all-the-icons-fonts
       exa # ls replacement written in Rust
       fd # find replacement written in Rust
-      ffmpeg
-      fontconfig
+      ffmpeg # video processing
+      fontconfig # font config
       fzf # Fuzzy finder
-      gcc
+      gcc # C compiler
       gh # github cli
       git # git maybe?
-      git-lfs
-      gitAndTools.delta
-      gitui
-      gmp
-      gnutls
+      git-lfs # git large file storage
+      gitAndTools.delta # git diff tool
+      gitui # git tui
+      gmp # GNU multiple precision arithmetic library
+      gnutls # GNU Transport Layer Security (TLS) Library
       graphviz
-      heroku
-      imagemagick
+      heroku # heroku cli
+      imagemagick # image processing
       jq # JSON parsing for the CLI
       lazygit # nice tui for git
+      libiconv # character set conversion library
       libnotify # for those sweet sweet notifications
-      libxml2
+      libxml2 # XML parsing library
       lorri # for shell.nix caching stuff?
-      lzma
-      multimarkdown
-      neovim
+      lzma # compression library
+      multimarkdown # markdown processor
+      neovim # the best text editor
       (nerdfonts.override { fonts = [ "VictorMono" "JetBrainsMono" ]; })
-      nixfmt
-      pandoc
+      nixfmt # nix formatter
+      pandoc # document converter
       pass # password manager
       pinentry_mac # Necessary for GPG
       pkg-config
-      pngpaste
+      pngpaste # paste images from clipboard
       # pre-commit # git hooks
       qemu # emulator
       re2c # regex compiler
