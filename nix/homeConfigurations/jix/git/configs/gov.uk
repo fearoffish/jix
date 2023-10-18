@@ -6,6 +6,7 @@
   directory = *
 
 [commit]
+  gpgsign = true
   sign = true
 
 [core]
