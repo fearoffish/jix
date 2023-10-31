@@ -22,6 +22,8 @@
       # direnv
       # direnv hook fish | source
       set -xg GOBIN ~/.local/bin
+
+      set -xg STARSHIP_LOG error
     '';
 
     plugins = map (name: {

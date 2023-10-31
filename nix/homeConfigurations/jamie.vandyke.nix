@@ -32,7 +32,6 @@
       bat # cat with syntax highlighting
       bottom # istat menus on the cli
       btop # another istat top like monitor
-      cargo # Rust package manager
       certstrap # certificate management
       coreutils # GNU core utilities
       curl # An old classic
@@ -78,7 +77,6 @@
       (ripgrep.override { withPCRE2 = true; })
       ripgrep-all
       rnix-lsp # nix language server
-      rustc
       s3cmd # s3 cli
       sd # Fancy sed replacement
       shellcheck # bash linter
