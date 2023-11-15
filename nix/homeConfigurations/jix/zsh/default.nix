@@ -3,9 +3,7 @@
   programs.zsh = {
     enable = true;
     initExtra = ''
-      export ASDF_DIR=/opt/homebrew/opt/asdf/libexec
       eval "$(/opt/homebrew/bin/brew shellenv)"
-      . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
       . ~/.github_token
       if [ -z "$HOMEBREW_GITHUB_API_TOKEN" ]; then echo "HOMEBREW_GITHUB_API_TOKEN is not set"; fi

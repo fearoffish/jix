@@ -67,7 +67,7 @@
       (nerdfonts.override { fonts = [ "VictorMono" "JetBrainsMono" ]; })
       nixfmt # nix formatter
       pandoc # document converter
-      pass # password manager
+      (pass.withExtensions (exts: [ exts.pass-otp ])) # password manager
       pinentry_mac # Necessary for GPG
       pkg-config
       pngpaste # paste images from clipboard

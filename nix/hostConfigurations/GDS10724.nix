@@ -78,6 +78,7 @@
       "raycast"
       "setapp"
       "sublime-text"
+      "sublime-merge"
       "zed"
       "zoom"
     ];
