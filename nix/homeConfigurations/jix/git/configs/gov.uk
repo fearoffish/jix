@@ -1,3 +1,19 @@
+[alias]
+	d = "!\"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat\""
+	dci = "duet-commit"
+	di = "!\"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d\""
+	dmg = "duet-merge"
+	drb = "rebase -i --exec 'git duet-commit --amend'"
+	drv = "duet-revert"
+	graph = "log --graph --color --pretty=format:\"%C(yellow)%H%C(green)%d%C(reset)%n%x20%cd%n%x20%cn%x20(%ce)%n%x20%s%n\""
+	l = "log --pretty=oneline -n 20 --graph --abbrev-commit"
+	rinse = "!git reset --hard --recurse-submodule && git submodule sync --recursive && git submodule update --init --force --recursive && git clean -ffdx && git submodule foreach --recursive git clean -ffdx"
+	s = "status -s"
+	sdiff = "'!'\"git diff && git submodule foreach 'git diff'\""
+	spush = "push --recurse-submodules=on-demand"
+	supdate = "submodule update --remote --merge"
+	suri = "submodule update --init --recursive --force"
+
 [user]
   email = "jamie.vandyke@digital.cabinet-office.gov.uk"
   signingkey = "C685939B1C7F7046"

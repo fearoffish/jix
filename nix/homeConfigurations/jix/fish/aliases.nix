@@ -1,6 +1,6 @@
 {
   l = "exa -l";
-  ll = "exa -l -@ --git";
+  ll = "exa -lha";
   tree = "exa -T";
   # "." = "exa -g";
   ".." = "cd ..";

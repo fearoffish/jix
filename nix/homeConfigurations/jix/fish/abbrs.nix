@@ -64,4 +64,10 @@
   cfld3 = "cf login -a api.dev03.dev.cloudpipeline.digital --sso";
   cfld4 = "cf login -a api.dev04.dev.cloudpipeline.digital --sso";
   cfld5 = "cf login -a api.dev05.dev.cloudpipeline.digital --sso";
+
+  # rubygems
+  gemi = "gem install";
+  gemu = "gem update";
+
+  # jcf = "orbstack run -it --rm ruby:3.3 bash -c \"gem install jcf && jcf";
 }
